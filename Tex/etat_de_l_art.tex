@@ -71,6 +71,15 @@ OpenGL est basé sur un principe de primitives : chaque objet est composé de pr
 	 \includegraphics[height=11cm]{img/Fonctionnement}
  \end{center}
 
+La première étape est de définir les primitives des objets à dessiner (x,y,z pour chaque Vertex).
+OpenGL dessine une image tampon qui sera soit conservée dans la mémoire vidéo de la fenêtre graphique avant d’être affichée, soit une image tampon intermédiaire, on parle alors de double buffering.
+
+La transformation du point de vue sert à la position du plan image. Elle prend en compte la position de la camera pour se placer correctement autour de l'objet. Ces modifications sont faites à l'aide de matrices. 
+
+Les primitives sont ensuite projetées sur ce plan en fonction des paramètres que l’on a affecté à la projection. Cette projection peut être spécifiée de deux manières. (Voir Projection)
+
+Au final l’image que l’on obtient est redimensionnée en fonction de la taille de la fenêtre graphique . On parle maintenant de pixels et plus de vertex.
+
 
 %A compléter
 
