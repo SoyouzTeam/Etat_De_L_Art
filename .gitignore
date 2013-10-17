@@ -20,6 +20,11 @@ local.properties
 .settings/
 .loadpath
 
+#Useless Files
+*.pdf
+*.doc
+*.docx
+
 # External tool builders
 .externalToolBuilders/
 
