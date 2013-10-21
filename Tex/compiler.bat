@@ -7,5 +7,5 @@ pdflatex etat_de_l_art.tex
 pdflatex etat_de_l_art.tex
 echo off
 cls
-echo Compilation terminee && pause>nul
+echo Compilation terminee by Emiliooooo Berthet && echo Appuyez sur une touche pour ouvrir le PDF && pause>nul
 etat_de_l_art.pdf
