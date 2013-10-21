@@ -15,15 +15,17 @@ tmp/
 *.log
 *.gz
 *.toc
+*.pdf
+*.doc
+*.docx
+
 local.properties
 .classpath
 .settings/
 .loadpath
 
 #Useless Files
-*.pdf
-*.doc
-*.docx
+
 
 # External tool builders
 .externalToolBuilders/
