@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage[francais]{babel} 
 \usepackage{array} 
+\usepackage{hyperref}%pour faire des ancres Table des matières -> partie A | partie B | etc
 
 \title{Etat de l'art}
 \author{Projet DUT INFO}
@@ -11,6 +12,8 @@
 
 \begin{document}
 \maketitle
+
+\hypertarget{tableofcontents}{} %affecte des ancres aux differentes partie
 \tableofcontents
 
 \part{Introduction}
@@ -26,7 +29,6 @@
 
 \chapter{Bibliothèque de rendu 3D}
 \input{bibliotheque_de_rendu_3d/bibliotheque_de_rendu_3d}
-
 
 \chapter{MatLab}
 \input{matlab/matlab}%Include du fichier matlab.tex

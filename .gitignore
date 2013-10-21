@@ -18,6 +18,7 @@ tmp/
 *.pdf
 *.doc
 *.docx
+*.out
 
 local.properties
 .classpath
