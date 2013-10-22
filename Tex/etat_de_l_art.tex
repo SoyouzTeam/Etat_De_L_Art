@@ -1,16 +1,34 @@
 \documentclass{report}
 \usepackage[utf8]{inputenc}
+\usepackage{ucs}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[francais]{babel} 
 \usepackage{array} 
+\usepackage{color,colortbl}
 \usepackage{hyperref}%pour faire des ancres Table des matières -> partie A | partie B | etc
+
+%permet les subsubsubsection :)
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
 
 \title{Etat de l'art}
 \author{Projet DUT INFO}
 \date{17 Septembre 2013}
 
 \begin{document}
+
 \maketitle
 
 \hypertarget{tableofcontents}{} %affecte des ancres aux differentes partie
@@ -20,6 +38,15 @@
 
 \chapter{Fonctionnement de l'affichage sur ordinateur}
 \input{histoire}
+
+\part{GPU}
+\input{leo/GPU}
+
+\part{Pipeline graphique}
+\input{leo/pipelinegraphique}
+
+\part{Shader}
+\input{leo/shader}
 
 \part{Outils de rendu 3D}
 

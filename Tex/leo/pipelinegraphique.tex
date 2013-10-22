@@ -1,0 +1,132 @@
+\section{Définition}
+Un pipeline (tuyau) graphique est une succession de tâches réalisées par la carte graphique nécessaires à la création de données géométriques afin de produire une scène 3D. \\\\
+En entrée, il récupère des coordonnées de points, et en sortie, il renvoi des Texels (TExtured piXEL).\\
+\textbf{Le texel} est un ou plusieurs pixels, sur les quelles, une texture a été appliquée.\\\\
+Le pipeline a trois phases : 
+\begin{itemize}
+  \item Phase 1 : transformations et calculs géométriques sur les sommets.
+  \item Phase 2 : calcul du rendu local et texturage des pixels de la facette.
+  \item Phase 3 : construction et rendu de l'image finale.\end{itemize}
+
+\section{Historique}
+1998/1999 : La première génération (rasterisation + texture mapping par le GPU) \\
+\includegraphics[width=14cm,height=50mm]{leo/images/pipeline1.png} 
+1999/2000 : La deuxieme génération (Transform \& lightin par le GPU)\\
+\includegraphics[width=14cm,height=50mm]{leo/images/pipeline2.png} 
+2001/2002 : Troisième génération (Vertex shader par le GPU)\\
+\includegraphics[width=14cm,height=50mm]{leo/images/pipeline3.png} 
+2003 : Quatrième génération (Pixel shader par le GPU)\\
+\includegraphics[width=14cm,height=50mm]{leo/images/pipeline4.png} 
+
+\section{Deux sortes de pipeline : Fixe (FFP) et dynamique (PFP)}
+Le pipeline fixe ne contient pas de shader. Il n’est donc pas programmable par les développeurs, mais est assez optimisé pour les calculs de toutes les étapes du pipeline.\\
+Au contraire, le pipeline dynamique, et ses shaders nous permettent de définir exactement le rendu à l’écran désiré. La création d’algorithmes qui diffèrent de ceux contenus dans le pipeline fixe, permet des changements au niveau de certains paramètres comme par exemple, les contrastes, les ombres, la lumière, les effets de Cell Shading ou de bump mapping…\\
+Les deux étapes programmables sont donc le vertex shader et le fragment shader ou pixel shader.\\
+Un vertex ou vertice, est un sommet d’une figure géométrique (un point particulier d’une figure).
+
+\section{Déroulement du pipeline}
+\subsection{Schéma}
+\includegraphics[width=14cm,height=180mm]{leo/images/pipeline.png}
+\subsection{Définition des étapes}
+\subsubsection{Data (Données brutes)}
+Définition des vertices ainsi que leurs coordonnées. Ces données sont enregistrées dans un tableau de vertex (Vertex Buffer) sur le GPU. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertice, celle-ci est passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices, la lecture sera plus rapide.
+Chaque sommet est déclaré avec ses coordonnées x,y et z. Il peut aussi recevoir une couleur r,g,b,a, une normale Nx, Ny, Nz, une texture u,v, une taille et un poids.
+\subsubsection{Transform \& lighting}
+Transformation, positionnement et éclairage des sommets en passant du repère local au repère global puis dans l’espace projeté.
+Cette tâche peut se décomposée en plusieurs tâches :\\
+\includegraphics[width=12cm,height=35mm]{leo/images/T&L.png}\\
+\textbf{En entrée :} tableaux de coordonnées de sommets dans le repère de l’objet.\\
+\subsubsubsection{World Transform}
+Le repère local est le repère affecté à chaque objet. Chaque vertices de l’objet est localisé par rapport au centre de l’objet de coordonnées (0, 0, 0).\\
+\begin{center}
+\includegraphics[width=10cm,height=40mm]{leo/images/repereLocal.png}
+\end{center}
+Le passage au repère global qui est le repère de la caméra, ou de l’observateur, s’exécute en changeant les coordonnées de chaque objet, qui passe donc de (0, 0, 0) à (X, Y, Z). Chaque vertice de chaque objet se met à jour en fonction des coordonnées X, Y et Z. \\
+\begin{center}
+\includegraphics[width=10cm,height=60mm]{leo/images/repereGlobal.png}\\
+\end{center}
+Il faut que l’objet soit dans la bonne orientation, et qu’il soit au bon endroit. Cela peut nécessiter une translation, une rotation ou une mise à l’échelle. Ces opérations peuvent être effectuées sur chaque vertex, c’est-à-dire sur chaque vecteur (coordonnées X, Y et Z). Les calculs peuvent donc être parallélisés et sont effectués par le GPU. Les calculs de transformation, rotation, et de mise à l’échelle sont des multiplications de ces vecteurs par des matrices prédéfinies. Chaque opération a une matrice de multiplication prédéfinie, et des matrices existent aussi pour effectuer deux opérations en même temps.\\
+\subsubsubsection{Vertex Blending}
+Combinaison d’un ou plusieurs ensembles de sommets.\\
+\subsubsubsection{View Transform}
+Passage du repère global au repère de la caméra. Après cette transformation, le point de coordonnées (0, 0, 0) sera la caméra. La direction de la vue de l’observateur sera alignée avec l'axe de la profondeur (l'axe Z). La transformation est opérée par le même principe que le "World Transform".\\
+\includegraphics[width=10cm,height=60mm]{leo/images/repereCamera.png}\\
+\subsubsubsection{Vertex Fog}
+Calcul de la couleur du brouillard pour chaque sommet.
+\subsubsubsection{Lighting \& Materials}
+Chaque vertice fournie des couleurs RGB pour définir comment cette vertice réagie à la lumière (réflexion, teinte, contraste…). On attribut alors à la vertice une couleur RGB correspondant à son éclairage.
+\subsubsubsection{Projection Transform}
+Passage du repère de l'observateur à l'espace projeté.\\
+
+\textbf{En sortie} : sommets avec calculs d’illumination dans l’espace projeté.
+
+\subsubsection{Primitive assembly ou Tesselation}
+Assemblage des vertex sous formes de triangle. L’assemblage s’effectue en prenant les vertex dans l’ordre spécifié par le tableau de vertex.\\\\
+Il existe trois méthodes d’assemblage :
+\begin{itemize}
+	\item Chaque paquet de trois vertex est un triangle indépendant.
+	\item Les deux derniers vertex de chaque triangle sont les deux premiers vertex d’un autre triangle (bande de triangle ou triangle strip).
+	\item Le premier élément est relié à chaque paire d’élément suivant (ventilateur de triangle ou triangle fan).
+	\end{itemize}
+Décomposer des formes complexes, en formes géométriques simple
+
+\subsubsection{Backface Culling}
+Supprime de l’affichage les triangles qui  tournent le dos à la caméra (face arrière d’une face) en effectuant un calcul avec sa normale.
+\subsubsection{Clipping}
+Découpe et supprime de l’affichage les parties non visibles des objets partiellement visibles.
+\subsubsection{Viewport transform}
+Supprime les parties qui ne sont pas dans les coordonnées de l’écran.
+
+\subsubsection{Rasterization}
+La rastérisation, ou matricialisation, est composée du triangle setup et de l’interpolation des pixels.
+\subsubsubsection{Triangle setup ou pixellisation des triangles} 
+Utilisation de la fonction des contours : Renvoi d’un nombre entier (-1, 0, 1) pour chaque pixel en fonction d’une droite. D’un côté de la droite, -1, de l’autre, 1 et sur la droite 0.
+En appliquant cette fonction aux trois segments, nous avons :
+\begin{itemize}
+	\item A l'intérieur du triangle, les trois fonctions (une par côté) donneront un résultat positif.
+	\item A l'extérieur, une des trois fonctions donnera un résultat négatif.
+\end{itemize}
+Si les 3 résultats des fonctions de contours pour un pixel sont positifs, cela veut dire que le pixel appartient au triangle.
+L’optimisation de ce procédé est déterminer le plus petit rectangle qui contient le triangle testé, pour exécuter le test des contours seulement sur un nombre de pixels réduit, et non sur tous les pixels de la forme.
+Les tests des pixels sont exécutés parallèlement pour un gain de temps.
+\subsubsubsection{Interpolation}
+Chaque vertex a reçu divers paramètre comme la couleur, la profondeur. Chaque fragment  de chaque triangle, va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une valeur de stencil, une transparence, par interpolations des trois vertices définis précédemment.
+
+\subsubsection{Multitexturing}
+Mélange des textures avec un rendu d’illumination.
+
+\subsubsection{Raster Operations (ROP)}
+Cette tâche peut se décomposée en plusieurs tâches :\\
+\includegraphics[width=12cm,height=40mm]{leo/images/rasterOp.png}\\
+\textbf{En entrée} : Tableau de fragment
+
+\subsubsubsection{Alpha Test}
+C’est le test de transparence. Certaines textures ou couleurs pouvant être transparentes, il faut pouvoir lire le canal alpha d’un pixel. Cette étape supprime tous les pixels qui n’ont pas un alpha acceptable.
+\subsubsubsection{Depth Test}
+C’est le test de visibilité (profondeur). C’est la coordonnée z de chaque fragment qui est comparée avec la coordonnée z des autres fragments qui sont sur le même pixel. La carte graphique utilise un depth-buffer qui est un tableau stocké en mémoire. Ce tableau va stocker pour chaque pixel la coordonnée z de l’objet le plus proche de l’écran.
+C’est le circuit de gestion de la profondeur qui s’occupe de mettre à jour le depth-buffer. Il va récupérer les coordonnées du fragment reçu à l’écran, puis lire en mémoire la coordonnée z correspondante dans le tableau. Il va comparer celle-ci avec la coordonnée z du fragment reçu, et décider ou non de mettre à jour le depth-buffer et le frame-buffer.
+Il faut que ces coordonnées z soient codées sur assez de bits pour avoir une bonne précision, et ne pas se retrouver avec des artefacts visuels.
+\subsubsubsection{Stencil Test}
+Un stencil est en  français un pochoir. C’est une sorte de masque que l’on affiche sur l’écran pour définir une vue restreinte comme une vue à travers un hublot, ou une serrure.
+\subsubsubsection{Per-pixel Fog}
+Cette étape permet de rajouter du brouillard (≠phénomène météorologique) sur chaque pixel. Le brouillard est ajouté grâce à une couleur de brouillard, qui est mélangée avec la couleur du pixel (moyenne). Le brouillard dépend de la profondeur du pixel. Si l’objet est proche, aucun brouillard n’est appliqué, si l’objet est trop loin, c’est seulement la couleur du brouillard qui est affiché.
+\subsubsubsection{Alpha Blend}
+Cette tâche sert à calculer la couleur finale du pixel. Notre GPU contient un color buffer, un tableau qui sert à stocker pour chaque pixel sa couleur finale.
+Le calcul est simple, à chaque fragment envoyé :
+\begin{itemize}
+	\item Lecture de l’ancienne couleur du pixel,
+	\item Calcul de la couleur finale en fonction du fragment envoyé et de l’ancienne couleur,
+	\item Enregistrement du résultat.
+\end{itemize}
+Les opérations "alpha test" et "alpha blend" sont effectuées par un circuit spécialisé : le Color ROP. Il travaille en parallèle des autres tâches.
+\subsubsubsection{Dither}
+Mélange des couleurs des pixels adjacents pour obtenir une couleur plus consistante.
+\subsubsubsection{Gamma}
+Applique la correction gamma définie.\\
+\textbf{En sortie} : le pixel prêt à être affiché relativement à l'état courant de traitement du flux de sommets.
+
+\subsubsection{Framebuffer}
+Affichage du résultat à l’écran utilisant le double-buffering, color buffer, Z-buffer.
+
+\subsection{Fonctionnement simple}
+\includegraphics[width=12cm,height=60mm]{leo/images/pipelineSimple.png}
