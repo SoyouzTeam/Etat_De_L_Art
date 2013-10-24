@@ -1,7 +1,8 @@
 \section{Définition}
 Les shaders sont des programmes plus ou moins élaborés qui ne sont pas pris en charge par le CPU (processeur), mais par le GPU (carte graphique). Exécutés sur chaque primitive d’une forme, ils permettent un affichage calculé, de pixels en couleur pour un rendu graphique. Les paramètres de ces couleurs sont : la teinte, la luminance, la saturation.
 \section{Historique}
-Du point de vue des bibliothèques graphiques, les shaders ont été intégrés à partir d'OpenGL 2.0 et dans DirectX 8.\\
+Du point de vue des bibliothèques graphiques, les shaders ont été intégrés à partir d'OpenGL 2.0 et dans DirectX 8.
+\\
 Pour chaque version différente de shader, nous parlons de modèles de shader (shader models (SM)). Il est possible de préciser la version que nous voulons utiliser dans notre shader.
 
 \begin{center}
@@ -24,11 +25,16 @@ Année & Version	& DirectX & OpenGL & ATI & Nvidia\\
 
 \section{Fonctionnement}
 \subsection{Vertex Shader}
-Le vertex shader est exécuté pour chaque vertex (sommet).\\\\
-Il remplace la tâche dite de Transform \& lighting. Elle doit dans un premier temps calculer la projection de coordonnées des sommets à partir de l'espace 3D dans l'espace écran et dans un second temps, définir l’éclairage pour chaque sommet.\\\\
-La projection des formes est le plus souvent décomposée en triangles, car les triangles permettent en remplissage des surfaces complexes sans pertes.\\\\
-Le vertex shader reçoit en entrée un sommet, un ensemble  de paramètres constants.\\\\
-Le vertex shader renvoi en sortie le même sommet qu’en entrée, mais transformé, avec des attributs spéciaux comme ses coordonnées dans l’espace écran (obligatoire), et des attributs interpolés comme la couleur (obligatoire), la texture (facultatif)…\\\\\\
+Le vertex shader est exécuté pour chaque vertex (sommet).
+\\\\
+Il remplace la tâche dite de Transform \& lighting. Elle doit dans un premier temps calculer la projection de coordonnées des sommets à partir de l'espace 3D dans l'espace écran et dans un second temps, définir l’éclairage pour chaque sommet.
+\\\\
+La projection des formes est le plus souvent décomposée en triangles, car les triangles permettent en remplissage des surfaces complexes sans pertes.
+\\\\
+Le vertex shader reçoit en entrée un sommet, un ensemble  de paramètres constants.
+\\\\
+Le vertex shader renvoi en sortie le même sommet qu’en entrée, mais transformé, avec des attributs spéciaux comme ses coordonnées dans l’espace écran (obligatoire), et des attributs interpolés comme la couleur (obligatoire), la texture (facultatif)…
+\\\\\\
 Possibilités du vertex shaders :
 \begin{itemize}
   \item Position procédurale
@@ -43,12 +49,16 @@ Possibilités du vertex shaders :
   
 \end{itemize} 
 
-\textbf{\\Transform} est la tâche qui permet de convertir des données spatiales depuis un espace virtuel en 3D vers l'écran en 2D.\\\\
-\textbf{Lighting} est la 3e opération qui va permettre d'éclairer la scène : éclairage des objets dans la scène 3D, calcul de l'interaction des composantes de la lumière sur les objets puis envoi de la scène ainsi calculée à l'écran.\\\\
-\textbf{Architecture} :\\
+\textbf{\\Transform} est la tâche qui permet de convertir des données spatiales depuis un espace virtuel en 3D vers l'écran en 2D.
+\\\\
+\textbf{Lighting} est la 3e opération qui va permettre d'éclairer la scène : éclairage des objets dans la scène 3D, calcul de l'interaction des composantes de la lumière sur les objets puis envoi de la scène ainsi calculée à l'écran.
+\\\\
+\textbf{Architecture} :
+\\
 \includegraphics[width=12cm,height=60mm]{leo/images/ArchiVertex.png}
 
-\textbf{ALU} (Arithmetic logic unit) : C’est l’unité qui effectue les calculs, grâce aux variables contenues dans les registres.\\\\
+\textbf{ALU} (Arithmetic logic unit) : C’est l’unité qui effectue les calculs, grâce aux variables contenues dans les registres.
+\\\\
 Description des registres de la structure :
 
 \subsection{Fragment Shader}
@@ -66,8 +76,10 @@ Possibilités du fragment shaders :
 	\item textures procédurales ou dynamiques.
 	\item bump-mapping
 \end{itemize}
-\textbf{Architecture} :\\
+\textbf{Architecture} :
+\\
 \includegraphics[width=12cm,height=60mm]{leo/images/ArchiPixel.png}
 
 \subsection{Geometry Shader}
-Créer de nouvelles formes géométriques.\\
+Créer de nouvelles formes géométriques.
+\\

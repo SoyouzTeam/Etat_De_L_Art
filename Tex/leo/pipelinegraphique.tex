@@ -43,12 +43,16 @@ Définition des vertices ainsi que leurs coordonnées. Ces données sont enregis
 Chaque sommet est déclaré avec ses coordonnées x,y et z. Il peut aussi recevoir une couleur r,g,b,a, une normale Nx, Ny, Nz, une texture u,v, une taille et un poids.
 \subsubsection{Transform \& lighting}
 Transformation, positionnement et éclairage des sommets en passant du repère local au repère global puis dans l’espace projeté.
+\\
 Cette tâche peut se décomposée en plusieurs tâches :
-\\
-\includegraphics[width=12cm,height=35mm]{leo/images/T&L.png}
-\\
+\\\\
 \textbf{En entrée :} tableaux de coordonnées de sommets dans le repère de l’objet.
 \\
+\begin{center}
+\includegraphics[width=12cm,height=35mm]{leo/images/T&L.png}
+\end{center}
+
+\textbf{\\En sortie} : sommets avec calculs d’illumination dans l’espace projeté.\\
 \begin{itemize}
   \item{\textbf{Transform}}
 Le repère local est le repère affecté à chaque objet. Chaque vertices de l’objet est localisé par rapport au centre de l’objet de coordonnées (0, 0, 0).
@@ -71,8 +75,10 @@ Combinaison d’un ou plusieurs ensembles de sommets.
 	\item{\textbf{View Transform}}
 Passage du repère global au repère de la caméra. Après cette transformation, le point de coordonnées (0, 0, 0) sera la caméra. La direction de la vue de l’observateur sera alignée avec l'axe de la profondeur (l'axe Z). La transformation est opérée par le même principe que le "World Transform".
 \\
+\begin{center}
 \includegraphics[width=10cm,height=60mm]{leo/images/repereCamera.png}
-\\
+\end{center}
+
 	\item{\textbf{Vertex Fog}}
 Calcul de la couleur du brouillard pour chaque sommet.
 \\
@@ -83,7 +89,6 @@ Chaque vertice fournie des couleurs RGB pour définir comment cette vertice réa
 Passage du repère de l'observateur à l'espace projeté.
 \\
 \end{itemize}
-\textbf{En sortie} : sommets avec calculs d’illumination dans l’espace projeté.
 
 \subsubsection{Primitive assembly ou Tesselation}
 Assemblage des vertex sous formes de triangle. L’assemblage s’effectue en prenant les vertex dans l’ordre spécifié par le tableau de vertex.
@@ -124,10 +129,13 @@ Mélange des textures avec un rendu d’illumination.
 
 \subsubsection{Raster Operations (ROP)}
 Cette tâche peut se décomposée en plusieurs tâches :
-\\
-\includegraphics[width=12cm,height=40mm]{leo/images/rasterOp.png}
-\\
+\\\\
 \textbf{En entrée} : Tableau de fragment
+\begin{center}
+\includegraphics[width=12cm,height=40mm]{leo/images/rasterOp.png}
+\end{center}
+\textbf{\\En sortie} : le pixel prêt à être affiché relativement à l'état courant de traitement du flux de sommets.
+\\
 
 \begin{itemize}
 	\item{\textbf{Alpha Test}}
@@ -160,7 +168,6 @@ Mélange des couleurs des pixels adjacents pour obtenir une couleur plus consist
 	\item{\textbf{Gamma}}
 Applique la correction gamma définie.
 \end{itemize}
-\textbf{En sortie} : le pixel prêt à être affiché relativement à l'état courant de traitement du flux de sommets.
 
 \subsubsection{Framebuffer}
 Affichage du résultat à l’écran utilisant le double-buffering, color buffer, Z-buffer.
