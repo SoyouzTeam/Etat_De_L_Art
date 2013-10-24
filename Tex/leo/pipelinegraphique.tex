@@ -30,7 +30,7 @@ Le pipeline fixe ne contient pas de shader. Il n’est donc pas programmable par
 \\
 Au contraire, le pipeline dynamique, et ses shaders nous permettent de définir exactement le rendu à l’écran désiré. La création d’algorithmes qui diffèrent de ceux contenus dans le pipeline fixe, permet des changements au niveau de certains paramètres comme par exemple, les contrastes, les ombres, la lumière, les effets de Cell Shading ou de bump mapping…
 \\
-Les deux étapes programmables sont donc le vertex shader et le fragment shader ou pixel shader.
+Les trois étapes programmables sont donc le vertex shader, le geometry shader, et le fragment shader ou pixel shader.
 \\
 Un vertex ou vertice, est un sommet d’une figure géométrique (un point particulier d’une figure).
 
@@ -173,4 +173,6 @@ Applique la correction gamma définie.
 Affichage du résultat à l’écran utilisant le double-buffering, color buffer, Z-buffer.
 
 \subsection{Fonctionnement simple}
+\begin{center}
 \includegraphics[width=12cm,height=60mm]{leo/images/pipelineSimple.png}
+\end{center}
