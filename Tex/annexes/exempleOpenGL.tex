@@ -1,0 +1,19 @@
+\section{Exemple Structure code OpenGL}
+
+\begin{tabbing}
+XXXX\=XXXX\=XXXX\= \kill
+
+\verb|int main(){|\\
+\> \verb|//Création de la fenetre suivant la bibliotèque choisie|\\
+\> \verb|//Le contexte OpenGL est défini à ce moment la par la bibliotèque|\\
+
+\> \verb|glMatrixMode( GL_PROJECTION );|\\
+\> \verb|glLoadIdentity( );|\\
+\> \verb|gluPerspective(80,(double)800/600,1,10);|\\
+\> \verb|Définition de l'angle de vision de la caméra , du ratio de la fenetre, ainsi que de l'intervalle de profondeur dans lequel faire le rendu ici de 1 à 10.|\\
+\> \verb|glEnable(GL_DEPTH_TEST); //Activation du Z-Buffer|\\
+
+\> \verb|bool running = true;|\\
+
+
+\end{tabbing}
