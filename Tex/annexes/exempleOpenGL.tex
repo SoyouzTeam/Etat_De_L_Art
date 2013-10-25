@@ -6,14 +6,48 @@ XXXX\=XXXX\=XXXX\= \kill
 \verb|int main(){|\\
 \> \verb|//Création de la fenetre suivant la bibliotèque choisie|\\
 \> \verb|//Le contexte OpenGL est défini à ce moment la par la bibliotèque|\\
-
-\> \verb|glMatrixMode( GL_PROJECTION );|\\
-\> \verb|glLoadIdentity( );|\\
+\\	
+\> \verb|glMatrixMode( GL_PROJECTION );//On active la matrice de Projection|\\
+\> \verb|glLoadIdentity( );// On reinitialise la matrice actuelle (GL_PROJECTION)|\\
 \> \verb|gluPerspective(80,(double)800/600,1,10);|\\
-\> \verb|Définition de l'angle de vision de la caméra , du ratio de la fenetre, ainsi que de l'intervalle de profondeur dans lequel faire le rendu ici de 1 à 10.|\\
+\> \verb|/*Définition de l'angle de vision de la caméra , du ratio de la fenetre, |\\
+\> \verb|ainsi que de l'intervalle de profondeur dans lequel faire le rendu |\\
+\> \verb|ici de 1 à 10.*/|\\
+\\
 \> \verb|glEnable(GL_DEPTH_TEST); //Activation du Z-Buffer|\\
-
+\\
 \> \verb|bool running = true;|\\
+\\
 
+\> \verb|while(running){|\\
 
+\>\> \verb|glClear(GL_COLOR_BUFFER_BIT \GL_DEPTH_BUFFER_BIT);|\\
+\>\> \verb|//Efface les buffers de couleurs ainsi que de Z-Buffer|\\
+\\
+\>\> \verb|glMatrixMode( GL_MODELVIEW );|\\
+\>\> \verb|//On active la matrice ModelView|\\
+\\
+\>\> \verb|glLoadIdentity();// Réinitialise la matrice actuelle (GL_MODELVIEW)|\\
+\\
+\>\> \verb|gluLookAt(3,3,3,0,0,0,0,1,0);|\\
+\>\> \verb|//On place la caméra en 3,3,3 dans le repère elle regarde|\\
+\>\> \verb|l'origine du repère et la verticale est Y.|\\
+\\
+\>\> \verb|glBegin(GL_LINES);//On indique que l'on définit des lignes|\\
+\>\>\> \verb|glColor3ub(0,0,255);//On change la couleur courante|\\
+\>\>\> \verb|glVertex3i(0,0,0);//Ligne de ce point ....|\\
+\>\>\> \verb|glVertex3i(1,0,0);//.... à ce point|\\
+\>\>\> \verb|glColor3ub(0,255,0);//...|\\
+\>\>\> \verb|glVertex3i(0,0,0);//...|\\
+\>\>\> \verb|glVertex3i(0,1,0);//...|\\
+\>\>\> \verb|glColor3ub(255,0,0);//...|\\
+\>\>\> \verb|glVertex3i(0,0,0);//...|\\
+\>\>\> \verb|glVertex3i(0,0,1);//...|\\
+\>\> \verb|glEnd();// Fin de la définition des primitives|\\
+\\
+\>\> \verb|//Affichage à l'ecran en fonction de la bibliotèque|\\
+
+\> \verb|}|\\
+\> \verb|return 0;|\\
+\verb|}|
 \end{tabbing}
