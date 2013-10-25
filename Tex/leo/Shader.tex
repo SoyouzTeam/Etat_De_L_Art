@@ -55,7 +55,9 @@ Possibilités du vertex shaders :
 \\\\
 \textbf{Architecture} :
 \\
+\begin{center}
 \includegraphics[width=12cm,height=60mm]{leo/images/ArchiVertex.png}
+\end{center}
 
 \textbf{ALU} (Arithmetic logic unit) : C’est l’unité qui effectue les calculs, grâce aux variables contenues dans les registres.
 \\\\
@@ -78,8 +80,38 @@ Possibilités du fragment shaders :
 \end{itemize}
 \textbf{Architecture} :
 \\
+\begin{center}
 \includegraphics[width=12cm,height=60mm]{leo/images/ArchiPixel.png}
+\end{center}
 
 \subsection{Geometry Shader}
 Créer de nouvelles formes géométriques.
 \\
+
+\section{Langages}
+Les GPUs peuvent être programmés grâce au langage dit « Shading language ». C’est un langage de description des interactions simples ou complexes, entre la lumière et la matière.\\
+\textbf{\\GLSL} (OpenGL Shading Language) : 
+\begin{itemize}
+	\item Intégré à OpenGL.
+	\item Plus simple que Cg.
+	\item OpenGL se charge d’inclure les shaders.
+	\item Multi-platforme (IOS, Windows, Android…).
+	\item{x} Exclusif à OpenGL.
+	\item Peu d’outils additionnels.
+	\item Support moindre que HLSL ou Cg.
+\end{itemize}
+\textbf{\\HSLS} :
+\begin{itemize}
+	\item Se charge d’inclure les shaders.
+\end{itemize}
+\textbf{\\Cg} (C for graphics) : 
+\begin{itemize}
+	\item Indépendant de l’API 3d (Direct3D ou OpenGL).
+	\item Outil débogueur
+	\item Le plus utilisé
+	\item Support important
+	\item Windows uniquement
+\end{itemize}
+\begin{center}
+\includegraphics[width=14cm,height=100mm]{leo/images/langages.png}
+\end{center}
