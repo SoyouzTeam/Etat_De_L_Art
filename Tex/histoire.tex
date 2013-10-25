@@ -2,9 +2,6 @@
 \subsection{Définition}
 Une carte graphique, ou carte vidéo, est un périphérique permettant à un ordinateur de communiquer 
 avec un écran.\\
-\subsection{Composants}
-\textbf{GPU} (Graphical Processing Unit) : Processeur graphique, constituant le cœur de la carte graphique, et qui possède des instructions évoluées de traitement d’image. Un GPU est une unité de calcul massivement parallèle.\\\\
-\textbf{Mémoire vidéo} (Frame Buffer) : Conserve les images traitées par le GPU avant l’affichage.
 \subsection{Fonctionnement en mode texte}
 Les premières cartes graphiques datent du début des années 1980, à une époque à laquelle les ordinateurs n'affichaient que du texte à l'écran.\\
 Ces cartes ne permettaient d'afficher à l'écran qu'une grille de caractères 
@@ -26,14 +23,21 @@ Cette carte est une avancée majeure puisqu'elle permet désormais d'afficher n'
 A l'époque, le rôle de la carte graphique se limitait à servir d'intermédiaire entre le CPU et l'écran, c'était le rôle du CPU de définir l'ensemble des pixels à afficher. Par exemple si une application souhaitait tracer une ligne entre deux points A et B, le CPU devait alors calculer la position de chaque pixel composant la ligne avant de demander à la carte graphique d'afficher ceux-ci.\\
 Aussi durant les années 1980, avec l'arrivée des interfaces graphiques, les cartes graphiques devinrent de plus en plus performantes dans le but de délester le CPU : elles étaient désormais capables de tracer elles-mêmes des primitives géométriques simples telles que des lignes, des triangles, des rectangles, des cercles, voire de colorier celles-ci d'après les consignes données par le CPU.\\
 
+\subsection{L'accélération matérielle 3D}
+Au début des années 1990 apparaissent les premières applications mettant en œuvre un rendu 3D. C'est notamment le jeu vidéo DOOM datant de décembre 1993 qui est considéré comme étant un pionnier en la matière.\\
+L'affichage en 3D nécessite beaucoup de calculs de la part du CPU, celui-ci doit désormais calculer la projection sur l'écran de chaque point de l'espace à rendre.\\
+Le constructeur 3DFX inaugure alors la première carte d'accélération 3D : la Voodoo, celle-ci permet de calculer les projections des points à la place du CPU.\\
+Au fil des ans, les cartes graphiques deviennent capables d'effectuer la majeure partie des calculs nécessaires à l'affichage,  comme la gestion de l'éclairage, des ombres, l'application des textures, etc. Elles permettent
+également d'accélérer le décodage de flux vidéos compressés.\\
+On parle désormais de GPU, "Graphics Processing Unit" pour désigner l'unité de calcul d'une carte graphique.\footnote{A la différence du CPU, le GPU dispose d'une architecture massivement parallèle.}
 
-\subsection{Historique des GPU}
+\subsection{Historique des cartes graphiques}
 \begin{center}
 \begin{tabular}{|c|c|m{0.2\linewidth}|m{0.3\linewidth} |c|}
 \hline
 Année & Génération & Carte & Application & Bus \\
 \hline
-1996 & 1 & 3dfx Voodoo & texture mapping et z-buffer & bus PCI\\
+1996 & 1 & 3dfx Voodoo & Première carte accélératrice : Texture mapping, Gestion du Z-Buffer & bus PCI\\
 \hline
 1998 & 2 & GeForce/ Radeon 7500 & Transform\&lighting, multi-texting & bus AGP \\
 \cline{1-4}
@@ -46,7 +50,11 @@ Année & Génération & Carte & Application & Bus \\
 \end{tabular}
 \end{center}
 
-Les bus PCI(Peripheral Component Interconnect), AGP(Advanced Graphics Port) et  PCIexpress sont des bus local.
+Les bus PCI,(Peripheral Component Interconnect), AGP(Advanced Graphics Port) et PCIExpress sont des bus local.
 Bus local : système de communication entre des cartes d’extension et la carte mère.
 Le bus PCIe est une version plus petite et plus performante que le PCI et AGP.
+
+\subsection{Composants d'une carte graphique moderne}
+\textbf{GPU} (Graphical Processing Unit) : Processeur graphique, constituant le cœur de la carte graphique, et qui possède des instructions évoluées de traitement d’image. Un GPU est une unité de calcul massivement parallèle.\\\\
+\textbf{Mémoire vidéo} (Frame Buffer) : Conserve les images traitées par le GPU avant l’affichage.
 
