@@ -11,17 +11,29 @@ définie par la norme MDA, "Monochrome Display Adapter"\footnote{http://www.seas
 du nom de la carte graphique d'IBM qui inaugura cette technologie.\\
 Il est à noter que c'est le CPU\footnote{Central Processing Unit : Unité de calcul centrale / Processeur de la machine} qui donnait ses instructions à la carte graphique, celle-ci ne faisant que transmettre les caractères à l'écran.\\
 Cette norme est encore utilisée de nos jours, elle permet notamment au BIOS d'afficher des informations au démarrage d'un ordinateur.
-
+\newpage
 \subsection{Fonctionnement en mode graphique}
 
 En 1981 apparait la première carte graphique permettant d'adresser chaque pixel de l'écran indépendamment.
 Fabriquée par IBM, cette carte dite CGA, "Color Graphic Adapter" permettait d'utiliser une résolution de 320 par 200 pixels en mode 4 couleurs ou une résolution de 640 par 200 pixels en mode monochrome.\\
 Cette carte est une avancée majeure puisqu'elle permet désormais d'afficher n'importe qu'elle forme à l'écran, et plus uniquement des caractères. C'est le début de l'informatique graphique.
 
+\begin{center}
+\includegraphics[width=10cm,height=8cm]{img/cpuRaster.png}
+\includegraphics[width=15cm,height=4cm]{img/cpuRasterExemple.png}
+\end{center}
+\newpage
+
 \subsection{L'accélération matérielle 2D}
 
 A l'époque, le rôle de la carte graphique se limitait à servir d'intermédiaire entre le CPU et l'écran, c'était le rôle du CPU de définir l'ensemble des pixels à afficher. Par exemple si une application souhaitait tracer une ligne entre deux points A et B, le CPU devait alors calculer la position de chaque pixel composant la ligne avant de demander à la carte graphique d'afficher ceux-ci.\\
 Aussi durant les années 1980, avec l'arrivée des interfaces graphiques, les cartes graphiques devinrent de plus en plus performantes dans le but de délester le CPU : elles étaient désormais capables de tracer elles-mêmes des primitives géométriques simples telles que des lignes, des triangles, des rectangles, des cercles, voire de colorier celles-ci d'après les consignes données par le CPU.\\
+
+\begin{center}
+\includegraphics[width=9cm,height=8cm]{img/gpuRaster.png}
+\includegraphics[width=15cm,height=8cm]{img/gpuRasterExemple.png}
+\end{center}
+\newpage
 
 \subsection{L'accélération matérielle 3D}
 Au début des années 1990 apparaissent les premières applications mettant en œuvre un rendu 3D. C'est notamment le jeu vidéo DOOM datant de décembre 1993 qui est considéré comme étant un pionnier en la matière.\\
