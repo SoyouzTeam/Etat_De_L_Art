@@ -33,7 +33,7 @@ La projection des formes est le plus souvent décomposée en triangles, car les 
 \\\\
 Le vertex shader reçoit en entrée un sommet, un ensemble  de paramètres constants.
 \\\\
-Le vertex shader renvoi en sortie le même sommet qu’en entrée, mais transformé, avec des attributs spéciaux comme ses coordonnées dans l’espace écran (obligatoire), et des attributs interpolés comme la couleur (obligatoire), la texture (facultatif)…
+Le vertex shader renvoie en sortie le même sommet qu’en entrée, mais transformé, avec des attributs spéciaux comme ses coordonnées dans l’espace écran (obligatoire), et des attributs interpolés comme la couleur (obligatoire), la texture (facultatif)…
 \\\\\\
 Possibilités du vertex shaders :
 \begin{itemize}
@@ -51,7 +51,7 @@ Possibilités du vertex shaders :
 
 \textbf{\\Transform} est la tâche qui permet de convertir des données spatiales depuis un espace virtuel en 3D vers l'écran en 2D.
 \\\\
-\textbf{Lighting} est la 3e opération qui va permettre d'éclairer la scène : éclairage des objets dans la scène 3D, calcul de l'interaction des composantes de la lumière sur les objets puis envoi de la scène ainsi calculée à l'écran.
+\textbf{Lighting} est la 3e opération qui va permettre d'éclairer la scène : éclairage des objets dans la scène 3D, calcul de l'intéraction des composantes de la lumière sur les objets puis envoi de la scène ainsi calculée à l'écran.
 \\\\
 \textbf{Architecture} :
 \\
@@ -74,7 +74,7 @@ Possibilités du fragment shaders :
 	\item Illumination par pixel (phong, BRDF) -> plus de dégradé
 	\item Textures procédurales
 	\item Cartoon shading
-	\item nouveaux modèles d’ombrages (par pixel, géomètrie interpolée).
+	\item nouveaux modèles d’ombrages (par pixel, géométrie interpolée).
 	\item textures procédurales ou dynamiques.
 	\item bump-mapping
 \end{itemize}
