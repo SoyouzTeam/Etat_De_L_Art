@@ -1,23 +1,23 @@
 \section{Définition}
 Un pipeline (tuyau) graphique est une succession de tâches réalisées par la carte graphique nécessaires à la création de données géométriques afin de produire une scène 3D.
 \\\\
-En entrée, il récupère des coordonnées de points, et en sortie, il renvoi des Texels (TExtured piXEL).
+En entrée, il récupère des coordonnées de points, et en sortie, il renvoie des Texels (TExtured piXEL).
 \\
-\textbf{Le texel} est un ou plusieurs pixels, sur les quelles, une texture a été appliquée.
+\textbf{Le texel} est un ou plusieurs pixels, sur lesquels, une texture a été appliqué.
 \\\\
 Le pipeline a trois phases : 
 \begin{itemize}
   \item Phase 1 : transformations et calculs géométriques sur les sommets.
-  \item Phase 2 : calcul du rendu local et texturage des pixels de la facette.
+  \item Phase 2 : calcul du rendu local et mise en place de texture des pixels de la facette.
   \item Phase 3 : construction et rendu de l'image finale.\end{itemize}
 
 \section{Historique}
-1998/1999 : La première génération (rasterisation + texture mapping par le GPU)
+1998/1999 : La première génération (rastérisation + texture mapping par le GPU)
 \\
 \begin{center}
 \includegraphics[width=14cm,height=40mm]{leo/images/pipeline1.png}
 \end{center}
-1999/2000 : La deuxieme génération (Transform \& lightin par le GPU)
+1999/2000 : La deuxième génération (Transform \& lighting par le GPU)
 \\
 \begin{center}
 \includegraphics[width=14cm,height=40mm]{leo/images/pipeline2.png} 
@@ -47,12 +47,12 @@ Un vertex ou vertice, est un sommet d’une figure géométrique (un point parti
 \includegraphics[width=14cm,height=180mm]{leo/images/pipeline.png}
 \subsection{Définition des étapes}
 \subsubsection{Data (Données brutes)}
-Définition des vertices ainsi que leurs coordonnées. Ces données sont enregistrées dans un tableau de vertex (Vertex Buffer) sur le GPU. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertice, celle-ci est passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices, la lecture sera plus rapide.
+Définition des vertices ainsi que leurs coordonnées. Ces données sont enregistrées dans un tableau de vertex (Vertex Buffer) sur le GPU. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertex, celui-ci passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices, la lecture sera plus rapide.
 Chaque sommet est déclaré avec ses coordonnées x,y et z. Il peut aussi recevoir une couleur r,g,b,a, une normale Nx, Ny, Nz, une texture u,v, une taille et un poids.
 \subsubsection{Transform \& lighting}
 Transformation, positionnement et éclairage des sommets en passant du repère local au repère global puis dans l’espace projeté.
 \\
-Cette tâche peut se décomposée en plusieurs tâches :
+Cette tâche peut se décomposée en plusieurs opérations :
 \\\\
 \textbf{En entrée :} tableaux de coordonnées de sommets dans le repère de l’objet.
 \\
@@ -63,7 +63,7 @@ Cette tâche peut se décomposée en plusieurs tâches :
 \textbf{\\En sortie} : sommets avec calculs d’illumination dans l’espace projeté.\\
 \begin{itemize}
   \item{\textbf{Transform}}
-Le repère local est le repère affecté à chaque objet. Chaque vertices de l’objet est localisé par rapport au centre de l’objet de coordonnées (0, 0, 0).
+Le repère local est le repère affecté à chaque objet. Chaque vertex de l’objet est localisé par rapport au centre de l’objet de coordonnées (0, 0, 0).
 \\
 \begin{center}
 \includegraphics[width=10cm,height=40mm]{leo/images/repereLocal.png}
@@ -136,7 +136,7 @@ Chaque vertex a reçu divers paramètre comme la couleur, la profondeur. Chaque 
 Mélange des textures avec un rendu d’illumination.
 
 \subsubsection{Raster Operations (ROP)}
-Cette tâche peut se décomposée en plusieurs tâches :
+Cette tâche peut se décomposée en plusieurs opérations :
 \\\\
 \textbf{En entrée} : Tableau de fragment
 \begin{center}
