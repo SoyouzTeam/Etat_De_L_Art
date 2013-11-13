@@ -34,7 +34,7 @@ A présent le buffer object est généré et prêt à recevoir des données. Sa 
 \verb|GLenum usage);|
 \end{center}
 \verb|GLenum| type est le même que celui du \verb|glBindBuffer()|, il peut prendre le paramètre \verb|GL_ARRAY_BUFFER| ou \verb|GL_ELEMENT_ARRAY_BUFFER|. \verb|GLsizeiptr size-| est la taille en bytes du tableau de vertex, \verb|const GlVoid *data| est le pointeur vers le tableau de données qui doit être copié. (Le tableau de position des vertex). Enfin usage fait référence à l’OpenGL et permet de définir l’utilisation du buffer (Voir Cas d’utilisation du buffer).
-\subsection{Cas d'utilisation du buffer}
+\subsubsection{Cas d'utilisation du buffer}
 
 Le dernier paramètre de la fonction \verb|glBufferData()|, usage, est donc une indication sur la façon dont le buffer object va être utilisé . Usage fait référence à deux critères qui seront la fréquence à laquelle les informations seront modifiées et le type d’accès à ces données. Chaque constante sera la combinaison de ces deux critères et sera de la forme : \verb|GL_VALEURFREQUENCE_VALEURACCES| (cf. tableau 1 et tableau 2)
 \\
@@ -42,11 +42,10 @@ Le dernier paramètre de la fonction \verb|glBufferData()|, usage, est donc une 
 \\
 \includegraphics[width=15cm,height=3cm]{img/tableau2.png}
 
-\section{Schéma}
-\subsection{Application d'un VA}
+\subsubsection{Application d'un VA}
 \includegraphics[width=15cm,height=7.48cm]{img/VA.png}
-\subsection{Application d'un VBO}
+\subsubsection{Application d'un VBO}
 \includegraphics[width=15cm,height=9.26cm]{img/VBO.png}
-\subsection{Application d'un VBO dans un VAO}
+\subsubsection{Application d'un VBO dans un VAO}
 \includegraphics[width=15cm,height=9.21cm]{img/VAO_VBO.png}
 %♥♥♥♥	♥♥♥♥
