@@ -1,6 +1,5 @@
 - Corrections etat de l'art :
 	-Commenter l'historique des cartes graphiques.
-	- 1.1.6 Bus local -> locaux sisi tkt + definition bas de la page
-	- Préciser différences instructions GPU/CPU
+	- Entrée pipeline : lampes ?
 
 
