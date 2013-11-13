@@ -1,7 +1,6 @@
 - Corrections etat de l'art :
 	-Commenter l'historique des cartes graphiques.
-	- 1.1.3 Fonctionnement : apparait -> apparaît
 	- 1.1.6 Bus local -> locaux sisi tkt + definition bas de la page
-	- 1.1.7 : Preciser "instrcutions evoluées de traitement d'image"
+	- Préciser différences instructions GPU/CPU
 
 
