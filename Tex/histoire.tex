@@ -70,7 +70,7 @@ Le bus PCIe est une version plus petite et plus performante que le PCI et AGP.
 \textbf{GPU} (Graphical Processing Unit) : Processeur graphique, constituant le cœur de la carte graphique, et qui possède des instructions évoluées de traitement d’image. Un GPU est une unité de calcul massivement parallèle.\\\\
 \textbf{Mémoire vidéo} (Frame Buffer) : Conserve les images traitées par le GPU avant l’affichage.
 
-\section{Différence entre le CPU et le GPU}
+\section{Différences entre le CPU et le GPU}
 \textbf{\\CPU} (Central Processing Unit):
 \begin{itemize}
 	\item	Traite l'ensemble des données.
@@ -85,12 +85,14 @@ Le bus PCIe est une version plus petite et plus performante que le PCI et AGP.
 	\item	Format imposé en entrée et en sortie.
 	\item	Permet de soulagé le CPU
 	\item	Beaucoup de cœurs pour des calculs parallélisés => Accélération d’un code lourds en ressources de calcul.
+	\item	Détient une mémoire qui permet d'éviter de recharger des images avec le CPU pour chaque calcul.
 \end{itemize}
 
 \textbf{\\Les architectures :}
 \\
 \begin{center}
-\includegraphics[width=14cm]{leo/images/GPUCPU.png}
+\includegraphics[width=14cm]{pipeline/images/GPUCPU.png}
 \end{center}
 
 \textbf{\\Conclusion} : Pour que l’utilisation d’un GPU soit utile, il faut qu'il ait suffisamment de coeur (ALU), et que le nombre de calculs soit élevé et parallélisable.
+\\Pour notre projet, le GPU est très utile, car il permet une sauvegarde de l'image qui réduit les interactions CPU-GPU et des calculs parallélisés.
