@@ -17,7 +17,6 @@ tmp/
 *.toc
 *.pdf
 *.doc
-*.docx
 *.out
 
 local.properties
