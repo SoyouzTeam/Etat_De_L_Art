@@ -15,22 +15,22 @@ Le pipeline a trois phases :
 1998/1999 : La première génération (rastérisation + texture mapping par le GPU)
 \\
 \begin{center}
-\includegraphics[width=14cm,height=40mm]{leo/images/pipeline1.png}
+\includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline1.png}
 \end{center}
 1999/2000 : La deuxième génération (Transform \& lighting par le GPU)
 \\
 \begin{center}
-\includegraphics[width=14cm,height=40mm]{leo/images/pipeline2.png} 
+\includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline2.png} 
 \end{center}
 2001/2002 : Troisième génération (Vertex shader par le GPU)
 \\
 \begin{center}
-\includegraphics[width=14cm,height=40mm]{leo/images/pipeline3.png}
+\includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline3.png}
 \end{center}
 2003 : Quatrième génération (Pixel shader par le GPU)
 \\
 \begin{center}
-\includegraphics[width=14cm,height=40mm]{leo/images/pipeline4.png}
+\includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline4.png}
 \end{center}
 
 \section{Deux sortes de pipeline : Fixe (FFP) et dynamique (PFP)}
@@ -44,7 +44,7 @@ Un vertex ou vertice, est un sommet d’une figure géométrique (un point parti
 
 \section{Déroulement du pipeline}
 \subsection{Schéma}
-\includegraphics[width=14cm,height=180mm]{leo/images/pipeline.png}
+\includegraphics[width=14cm,height=180mm]{pipeline/images/pipeline.png}
 \subsection{Définition des étapes}
 \subsubsection{Data (Données brutes)}
 Définition des vertices ainsi que leurs coordonnées. Ces données sont enregistrées dans un tableau de vertex (Vertex Buffer) sur le GPU. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertex, celui-ci passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices, la lecture sera plus rapide.
@@ -57,7 +57,7 @@ Cette tâche peut se décomposée en plusieurs opérations :
 \textbf{En entrée :} tableaux de coordonnées de sommets dans le repère de l’objet.
 \\
 \begin{center}
-\includegraphics[width=12cm,height=50mm]{leo/images/T&L.png}
+\includegraphics[width=12cm,height=50mm]{pipeline/images/T&L.png}
 \end{center}
 
 \textbf{\\En sortie} : sommets avec calculs d’illumination dans l’espace projeté.\\
@@ -66,13 +66,13 @@ Cette tâche peut se décomposée en plusieurs opérations :
 Le repère local est le repère affecté à chaque objet. Chaque vertex de l’objet est localisé par rapport au centre de l’objet de coordonnées (0, 0, 0).
 \\
 \begin{center}
-\includegraphics[width=10cm,height=40mm]{leo/images/repereLocal.png}
+\includegraphics[width=10cm,height=40mm]{pipeline/images/repereLocal.png}
 \end{center}
 
 Le passage au repère global qui est le repère de la caméra, ou de l’observateur, s’exécute en changeant les coordonnées de chaque objet, qui passe donc de (0, 0, 0) à (X, Y, Z). Chaque vertice de chaque objet se met à jour en fonction des coordonnées X, Y et Z.
 \\
 \begin{center}
-\includegraphics[width=10cm,height=60mm]{leo/images/repereGlobal.png}\\
+\includegraphics[width=10cm,height=60mm]{pipeline/images/repereGlobal.png}\\
 \end{center}
 
 Il faut que l’objet soit dans la bonne orientation, et qu’il soit au bon endroit. Cela peut nécessiter une translation, une rotation ou une mise à l’échelle. Ces opérations peuvent être effectuées sur chaque vertex, c’est-à-dire sur chaque vecteur (coordonnées X, Y et Z). Les calculs peuvent donc être parallélisés et sont effectués par le GPU. Les calculs de transformation, rotation, et de mise à l’échelle sont des multiplications de ces vecteurs par des matrices prédéfinies. Chaque opération a une matrice de multiplication prédéfinie, et des matrices existent aussi pour effectuer deux opérations en même temps.
@@ -84,7 +84,7 @@ Combinaison d’un ou plusieurs ensembles de sommets.
 Passage du repère global au repère de la caméra. Après cette transformation, le point de coordonnées (0, 0, 0) sera la caméra. La direction de la vue de l’observateur sera alignée avec l'axe de la profondeur (l'axe Z). La transformation est opérée par le même principe que le "World Transform".
 \\
 \begin{center}
-\includegraphics[width=10cm,height=60mm]{leo/images/repereCamera.png}
+\includegraphics[width=10cm,height=60mm]{pipeline/images/repereCamera.png}
 \end{center}
 
 	\item{\textbf{Vertex Fog}}
@@ -140,7 +140,7 @@ Cette tâche peut se décomposée en plusieurs opérations :
 \\\\
 \textbf{En entrée} : Tableau de fragment
 \begin{center}
-\includegraphics[width=12cm,height=50mm]{leo/images/rasterOp.png}
+\includegraphics[width=12cm,height=50mm]{pipeline/images/rasterOp.png}
 \end{center}
 \textbf{\\En sortie} : le pixel prêt à être affiché relativement à l'état courant de traitement du flux de sommets.
 \\
@@ -182,5 +182,5 @@ Affichage du résultat à l’écran utilisant le double-buffering, color buffer
 
 \subsection{Fonctionnement simple}
 \begin{center}
-\includegraphics[width=12cm,height=60mm]{leo/images/pipelineSimple.png}
+\includegraphics[width=12cm,height=60mm]{pipeline/images/pipelineSimple.png}
 \end{center}
