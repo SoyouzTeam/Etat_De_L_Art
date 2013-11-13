@@ -6,7 +6,14 @@
 \usepackage[francais]{babel} 
 \usepackage{array} 
 \usepackage{color}
-\usepackage{hyperref}%pour faire des ancres Table des matières -> partie A | partie B | etc
+\usepackage[pdfborder=0]{hyperref}%pour faire des ancres Table des matières -> partie A | partie B | etc
+\definecolor{vert}{rgb}{0.0,0.0,0.0}
+\hypersetup{
+    hyperfigures = true,
+    colorlinks = true,
+    linkcolor=vert
+   }
+
 %%%%%%%%%%%%% MARGES %%%%%%%%%%%%%%%%%%
 % Package pour modifier les MARGES !
 \usepackage{geometry} 
