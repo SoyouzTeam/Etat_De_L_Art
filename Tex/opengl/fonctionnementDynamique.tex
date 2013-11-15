@@ -1,2 +1,45 @@
 \section{Fonctionnement dynamique}
 %SHADERS
+
+\subsection{Principe du Shader}
+
+Le fonctionnement dynamique du pipeline graphique se différencie du fonctionnement statique par l'utilisation de shaders.
+Comme expliqué précédemment les shaders sonts de petits programmes écrits dans un langage spécifique : Avec OpenGl, le langage utilisé est le GLSL.\\
+Ils sont compilés à l'éxécution du programme OpenGL, et executés pour chaque vertex (Vertex Shader) et chaque fragment (Fragment Shader).
+Ils remplacent les calculs de matrices gérés nativement dans le fonctionnement statique d'OpenGL. C'est-à-dire qu'il faut implémenter ces calculs dans les shaders. L'intéret est qu'il est possible d'adapter ces calculs pour satisfaire certains besoins de l'application. D'autant plus que les shaders sont executés par la carte graphique(GPU) et que celle-ci, étant constituées d'une importante quantité de coeurs, peut facilement répartir les taches et faire tous ces calculs beaucoup plus rapidement que le processeur.
+
+\subsection{Utilisation des shaders}
+
+Il est plus ou moins aisé d'implémenter les shaders dans un programme OpenGL, suivant la bibliotèque graphique utilisée.
+Nous prenons l'exemple de la SFML:\\
+
+\begin{tabbing}
+XXXX\=XXXX\= \kill\\
+\> //On déclare un objet de type Shader\\
+\> \verb|sf::Shader shader;|\\
+\\
+\>//Puis on charge les fichiers shaders\\
+\> \verb|if(!shader.loadFromFile("vertex_shader.vert", sf::Shader::Vertex))|\\
+\> \verb|{|\\
+\> \>\verb|//error...|\\
+\> \verb|}|\\
+\end{tabbing}
+
+Pour utiliser le shader il faut l'activer avant de dessiner et le desactiver quand on en a plus besoin.
+
+
+\begin{tabbing}
+XXXX\=XXXX\= \kill\\
+\> // On active shader\\
+\> \verb|sf::Shader::bind(&shader);|\\
+\\
+\> ....\\
+\> //On dessine nos entités OpenGL ....\\
+\> ....\\
+\\
+\> // On desactive le shader\\
+\> \verb|sf::Shader::bind(NULL);|\\
+\end{tabbing}
+
+
+ 
