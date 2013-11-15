@@ -26,7 +26,7 @@ Dans ce cas le CPU va effectuer tous les calculs permettant de décomposer les f
 
 \includegraphics[width=15cm,height=4cm]{img/cpuRasterExemple.png}
 
-Dans cet exemple c'est donc le CPU qui va effectuer la demande de l'application en décomposant la ligne en pixels qui seront envoyés au GPU.\\
+Dans cet exemple c'est donc le CPU qui va effectuer la demande de l'application en décomposant la ligne en pixels qui seront envoyés à la carte graphique.\\
 Ces calculs sont lourds pour le CPU, qui n'est alors composé que d'un coeur, celui ci n'est pas optimisé pour effectuer de nombreux calculs en peu de temps.
 
 \end{center}
@@ -45,7 +45,7 @@ Le CPU se comporte désormais en superviseur, il demande à la carte graphique d
 
 \includegraphics[width=15cm,height=8cm]{img/gpuRasterExemple.png}
 
-Ici, c'est le GPU qui va calculer tous les pixels de la ligne d'après les consignes du CPU avant de les afficher à l'écran.
+Ici, c'est la carte graphique qui va calculer tous les pixels de la ligne d'après les consignes du CPU avant de les afficher à l'écran.
 
 % Avec les cartes graphiques modernes il est maintenant possible de programmer des parties de la carte graphique appelés shader (il en existe trois : les vertex, les geometriques et les pixels ou fragments). Ceux ci peuvent permettre par exemple d'appliquer un éclairage spécifique à notre ligne.
 \end{center}
