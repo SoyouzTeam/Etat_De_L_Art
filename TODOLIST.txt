@@ -1,5 +1,6 @@
 - Corrections etat de l'art :
-	-Commenter l'historique des cartes graphiques.
+	- Images fonctionnement accélération
+	- Commenter l'historique des cartes graphiques.
 	- Entrée pipeline : lampes ?
 
 
