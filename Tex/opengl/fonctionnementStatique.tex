@@ -79,10 +79,10 @@ La projection appliquée suite aux coordonnées des primitives est définie dans
 \begin{center}
 	 \includegraphics[height=5cm]{img/Perspective}
  \end{center}
-Notre œil perçoit ce qui loin plus petit qu’il ne l’est en réalité. Cette méthode de projection est souvent utilisée en animation, simulation et autre applications où il faudrait un degré de réalisme, comme peut le percevoir notre œil. Pour la définir il faut connaître son centre de projection (frustum), la distance entre ce point et l'objet, et enfin sa direction, qui suivra obligatoirement l’axe z. Sous OpenGL la fonction est : 
+Notre œil perçoit ce qui est loin plus petit qu’il ne l’est en réalité. Cette méthode de projection est souvent utilisée en animation, simulation et autre applications où il faudrait un degré de réalisme, comme peut le percevoir notre œil. Pour la définir il faut connaître son centre de projection (frustum), la distance entre ce point et le début de la zone de rendu et entre ce point et la fin de la zone de rendu.Sous OpenGL la fonction est : 
 \begin{tabbing}
 XXXX\= \kill
-\> \verb|glFrustum(gauche, droite, bas, haut, proche, éloigné);| \\où les paramètres sont des doubles.
+\> \verb|glFrustum(gauche, droite, bas, haut, proche, éloigné);| \\où les paramètres sont de type double.
 \end{tabbing}
 
 
