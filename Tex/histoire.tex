@@ -59,6 +59,37 @@ Au fil des ans, les cartes graphiques deviennent capables d'effectuer la majeure
 également d'accélérer le décodage de flux vidéos compressés.\\
 On parle désormais de GPU, "Graphics Processing Unit" pour désigner l'unité de calcul d'une carte graphique.\footnote{A la différence du CPU, le GPU dispose d'une architecture massivement parallèle.}
 
+\subsection{Différences entre GPU et CPU}
+
+Le CPU et le GPU ont des rôles très différents.
+
+\textbf{\\CPU} (Central Processing Unit):
+\begin{itemize}
+	\item	Traite l'ensemble des instructions : très polyvalent, jeu d'instructions très étendu.
+	\item	Données accessibles sans contraintes.
+	\item	Format de sortie libre.
+	\item	Peu de cœurs, une exécution en série.
+\end{itemize}
+
+\textbf{\\GPU} (Graphics Processing Unit)
+\begin{itemize}
+	\item	Unités de calcul spécialisées, jeu d'instructions limité.
+	\item	Grand nombre de cœurs d'exécution, architecture hautement parallèle adaptée au traitement d'images.
+	\item	Format imposé en entrée et en sortie.
+	\item	Permet de soulager le CPU
+
+\end{itemize}
+
+\textbf{\\Les architectures :}
+\\
+\begin{center}
+\includegraphics[width=14cm]{pipeline/images/GPUCPU.png}
+\end{center}
+
+\textbf{\\Conclusion} : Pour que l’utilisation d’un GPU soit utile, il faut qu'il ait suffisamment de coeur (ALU), et que le nombre de calculs soit élevé et parallélisable.
+
+
+
 \subsection{Historique des cartes graphiques}
 \begin{center}
 \begin{tabular}{|c|c|m{0.2\linewidth}|m{0.3\linewidth} |c|}
@@ -81,33 +112,3 @@ Année & Génération & Carte & Application & Bus \\
 Les bus PCI,(Peripheral Component Interconnect), AGP(Advanced Graphics Port) et PCIExpress sont des bus locaux
 \footnote{ Bus local : système de communication entre des cartes d’extension et la carte mère}.
 Le bus PCIe est une version plus petite et plus performante que le PCI et AGP.
-
-\subsection{Différence entre GPU et CPU}
-\textbf{GPU} (Graphical Processing Unit) : Processeur graphique, constituant le cœur de la carte graphique, et qui possède des instructions évoluées de traitement d’image. Un GPU est une unité de calcul massivement parallèle.\\\\
-\textbf{Mémoire vidéo} (Frame Buffer) : Conserve les images traitées par le GPU avant l’affichage.
-
-\textbf{\\CPU} (Central Processing Unit):
-\begin{itemize}
-	\item	Traite l'ensemble des données.
-	\item	Données accessibles sans contraintes.
-	\item	Format de sortie libre.
-	\item	Peu de cœurs pour une exécution  en série
-\end{itemize}
-
-\textbf{\\GPU} (Graphics Processing Unit)
-\begin{itemize}
-	\item	Transforme un flux de données en un autre.
-	\item	Format imposé en entrée et en sortie.
-	\item	Permet de soulagé le CPU
-	\item	Beaucoup de cœurs pour des calculs parallélisés => Accélération d’un code lourds en ressources de calcul.
-\end{itemize}
-
-\textbf{\\Les architectures :}
-\\
-\begin{center}
-\includegraphics[width=14cm]{pipeline/images/GPUCPU.png}
-\end{center}
-
-\textbf{\\Conclusion} : Pour que l’utilisation d’un GPU soit utile, il faut qu'il ait suffisamment de coeur (ALU), et que le nombre de calculs soit élevé et parallélisable.
-
-
