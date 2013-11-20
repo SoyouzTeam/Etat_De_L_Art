@@ -6,6 +6,9 @@
 \usepackage[francais]{babel} 
 \usepackage{array} 
 \usepackage{color}
+\usepackage{url}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
 \usepackage[pdfborder=0]{hyperref}%pour faire des ancres Table des matières -> partie A | partie B | etc
 \definecolor{vert}{rgb}{0.0,0.0,0.0}
 \hypersetup{
@@ -19,7 +22,6 @@
 \usepackage{geometry} 
 \geometry{ hmargin=3cm, vmargin=3cm } % hmargin > marges de coté | vmargin > marges haut/bas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%permet les subsubsubsection :)
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{3}
 \makeatletter
@@ -48,7 +50,7 @@
 \part{Introduction}
 
 \chapter{Fonctionnement de l'affichage sur ordinateur}
-\input{histoire}
+\input{gpu_et_cpu/histoire}
 
 \part{Pipeline graphique}
 \chapter{Fonctionnement du pipeline graphique}
@@ -61,13 +63,13 @@
 
 \chapter{OpenGL}
 
-\input{openGl}%Include du fichier openGl.tex
+\input{openGL/openGl}%Include du fichier openGl.tex
 
 \chapter{MatLab}
 \input{matlab/matlab}%Include du fichier matlab.tex
 
-\input{annexes}
+\input{annexes/annexes}
 \newpage
-\bibliography{biblio}
-\bibliographystyle{plain}
+\bibliography{bibTex/biblio}
+
 \end{document}

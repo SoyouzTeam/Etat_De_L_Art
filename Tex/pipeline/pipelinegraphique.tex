@@ -1,12 +1,14 @@
 \section{Définition}
-Le pipeline graphique représente la succession des tâches réalisées par la carte graphique dans le but de calculer le rendu d'une scène 3D afin de l'afficher celui-ci à l'écran.
+Le pipeline graphique représente la succession des tâches réalisées par la carte graphique dans le but de calculer le rendu d'une scène 3D afin d'afficher celle-ci à l'écran.
 \\\\
-En entrée, il récupère les informations brutes de la scène 3D :\\
+En entrée, il récupère les informations brutes de la scène 3D :
 \begin{itemize}
 \item Le type, les coordonnées et la couleur de chaque vertice.
 \item Les coordonnées des éventuelles textures à appliquer.
+\\
 \end{itemize}
- il récupère la position et la couleur des vertices de la scène, et en sortie, il renvoie des Texels (TExtured piXEL).
+
+En sortie, il renvoie une image 2D composée de texels.
 \\
 \textbf{Le texel} est un ou plusieurs pixels, sur lesquels, une texture a été appliqué.
 \\\\
@@ -15,6 +17,8 @@ Le pipeline a trois phases :
   \item Phase 1 : transformations et calculs géométriques sur les sommets.
   \item Phase 2 : calcul du rendu local et mise en place de texture des pixels de la facette.
   \item Phase 3 : construction et rendu de l'image finale.\end{itemize}
+
+Source : \cite{pipeline2}
 
 \section{Historique}
 1998/1999 : La première génération (rastérisation + texture mapping par le GPU)
@@ -38,6 +42,8 @@ Le pipeline a trois phases :
 \includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline4.png}
 \end{center}
 
+Source : \cite{histoirePipeline}
+
 \section{Deux sortes de pipeline : Fixe (FFP) et dynamique (PFP)}
 Le pipeline fixe ne contient pas de shader. Il n’est donc pas programmable par les développeurs, mais est assez optimisé pour les calculs de toutes les étapes du pipeline.
 \\
@@ -50,6 +56,7 @@ Un vertex ou vertice, est un sommet d’une figure géométrique (un point parti
 \section{Déroulement du pipeline}
 \subsection{Schéma}
 \includegraphics[width=14cm,height=180mm]{pipeline/images/pipeline.png}
+Source : \cite{pipeline1}
 \subsection{Définition des étapes}
 \subsubsection{Data (Données brutes)}
 Définition des vertices ainsi que leurs coordonnées. Ces données sont enregistrées dans un tableau de vertex (Vertex Buffer) sur le GPU. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertex, celui-ci passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices, la lecture sera plus rapide.
@@ -102,6 +109,8 @@ Chaque vertice fournit des couleurs RGB pour définir comment cette vertice réa
 Passage du repère de l'observateur à l'espace projeté.
 \\
 \end{itemize}
+
+Source : \cite{pipeline3}
 
 \subsubsection{Primitive assembly ou Tesselation}
 Assemblage des vertex sous formes de triangle. L’assemblage s’effectue en prenant les vertex dans l’ordre spécifié par le tableau de vertex.
@@ -181,6 +190,8 @@ Mélange des couleurs des pixels adjacents pour obtenir une couleur plus consist
 	\item{\textbf{Gamma}}
 Applique la correction gamma définie.
 \end{itemize}
+
+Source : \cite{pipeline4}
 
 \subsubsection{Framebuffer}
 Affichage du résultat à l’écran utilisant le double-buffering, color buffer, Z-buffer.
