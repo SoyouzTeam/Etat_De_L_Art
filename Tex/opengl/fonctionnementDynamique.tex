@@ -46,12 +46,21 @@ XXXX\=XXXX\= \kill\\
 
 \begin{tabbing}
 XXXX\=XXXX\= \kill\\
-\> \verb|uniform float a;| \\
+\> \verb|uniform float a;|\\
 \> \\
 \> \verb|void main(){|\\
 \> \\
-\> \verb|gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;|\\
+\>\> \verb|vec4 vertex = gl_Vertex;| \\
 \> \\
+\>\> \verb|vertex.y = vertex.y + a*cos(vertex.y)| \\
+\> \\
+\>\> \verb|gl_Position = gl_ModelViewProjectionMatrix * vertex;|\\
+\> \\
+\>\> \verb|// transforme les coordonnées de texture|\\
+\>\> \verb|gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;|\\
+\> \\
+\>\> \verb|// transmet la couleur|\\
+\>\> \verb|gl_FrontColor = gl_Color;|\\
 \> \verb|}|\\
 \end{tabbing}
 
