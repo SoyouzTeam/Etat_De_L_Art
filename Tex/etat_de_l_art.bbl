@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,6 +25,11 @@ Alain Boucher.
 \newblock URL
   \url{http://www2.ifi.auf.org/personnel/Alain.Boucher/cours/synthese\_images/03-Affichage.pdf}.
 \newblock IFI.
+
+\bibitem[{David Shreiner}(2007)]{RedBook}
+{Graham Sellers} {John M. Kessenich}~{Bill M. Licea-Kane} {David Shreiner}.
+\newblock \emph{OpenGL Programming Guide}.
+\newblock Addison-Wesley, 2007.
 
 \bibitem[Department(December 10, 2012)]{pipeline4}
 Computer~Science Department.
