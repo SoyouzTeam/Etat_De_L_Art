@@ -61,7 +61,7 @@ On parle désormais de GPU, "Graphics Processing Unit" pour désigner l'unité d
 
 \subsection{Différences entre GPU et CPU}
 
-Le CPU et le GPU ont des rôles très différents.
+Les CPU et les GPU ont des rôles très différents.
 
 \textbf{\\CPU} (Central Processing Unit):
 \begin{itemize}
@@ -76,9 +76,11 @@ Le CPU et le GPU ont des rôles très différents.
 	\item	Unités de calcul spécialisées, jeu d'instructions limité.
 	\item	Grand nombre de cœurs d'exécution, architecture hautement parallèle adaptée au traitement d'images.
 	\item	Format imposé en entrée et en sortie.
-	\item	Permet de soulager le CPU
+	\item	A pour utilité première de soulager le CPU.
 
 \end{itemize}
+
+De part leurs rôles différents, les CPU et les GPU ont des architectures différentes.
 
 \textbf{\\Les architectures :}
 \\
@@ -86,7 +88,8 @@ Le CPU et le GPU ont des rôles très différents.
 \includegraphics[width=14cm]{pipeline/images/GPUCPU.png}
 \end{center}
 
-\textbf{\\Conclusion} : Pour que l’utilisation d’un GPU soit utile, il faut qu'il ait suffisamment de coeur (ALU), et que le nombre de calculs soit élevé et parallélisable.
+\textbf{\\Conclusion} : Pour que l’utilisation d’un GPU soit utile et qu'il puisse mettre à profit son architecture parallèle, il faut que les calculs à effectuer soient parallèlisables.\\
+C'est à dire que les calculs doivent pouvoir être répartis entre les différents coeurs d'éxécution, ce qui implique de nombreux problèmes de synchronisation et d'accès simultanés aux mêmes variables.%\footnote{ http://fr.wikipedia.org/wiki/Parall%C3%A9lisme_%28informatique%29 }
 
 
 
