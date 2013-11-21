@@ -12,6 +12,8 @@ tmp/
 *.swp
 *~.nib
 *.aux
+
+*.bbl
 *.log
 *.gz
 *.toc
@@ -25,7 +27,7 @@ local.properties
 .loadpath
 
 #Useless Files
-
+*.dvi
 
 # External tool builders
 .externalToolBuilders/
