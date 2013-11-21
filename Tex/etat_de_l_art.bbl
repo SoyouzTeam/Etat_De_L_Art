@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -26,12 +26,25 @@ Alain Boucher.
   \url{http://www2.ifi.auf.org/personnel/Alain.Boucher/cours/synthese\_images/03-Affichage.pdf}.
 \newblock IFI.
 
-\bibitem[Department(December 10, 2012)]{pipeline4}
-Computer~Science Department.
+\bibitem[Boyer(2010)]{PdfOpenGL}
+Edmond Boyer.
+\newblock Opengl et glut, 2010.
+\newblock URL \url{http://www.ann.jussieu.fr/hecht/ftp/DEA/OpenGL.pdf}.
+\newblock Imag.
+
+\bibitem[Groff(2010)]{OpenGL}
+Joe Groff.
+\newblock Opengl, 2010.
+\newblock URL
+  \url{http://duriansoftware.com/joe/An-intro-to-modern-OpenGL.-Chapter-1:-The-Graphics-Pipeline.html}.
+\newblock Programmeur à Portland, Oregon, USA.
+
+\bibitem[informatique(December 10, 2012)]{pipeline4}
+Département informatique.
 \newblock Computer graphics rendering pipeline, December 10, 2012.
 \newblock URL
   \url{http://cg.informatik.uni-freiburg.de/course_notes/graphics_01_pipeline.pdf}.
-\newblock University of Freiburg.
+\newblock Université de Freiburg.
 
 \bibitem[Laurent(2011)]{historiqueShader}
 Alexandre Laurent.
