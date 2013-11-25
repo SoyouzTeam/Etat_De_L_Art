@@ -104,7 +104,7 @@ Passage du repère global au repère de la caméra. Après cette transformation,
 Calcul de la couleur du brouillard pour chaque sommet.
 \\
 	\item{\textbf{Lighting \& Materials}}
-Chaque vertex fournit des couleurs RGB pour définir comment il réagit à la lumière (réflexion, teinte, contraste…). On lui attribut alors une couleur RGB correspondant à son éclairage.
+Chaque vertex fournit des couleurs RGB pour définir comment il réagit à la lumière (réflexion, teinte, contraste…). On lui attribue alors une couleur RGB correspondant à son éclairage.
 \\
 	\item{\textbf{Projection Transform}}
 Passage du repère de l'observateur à l'espace projeté.
@@ -114,15 +114,15 @@ Passage du repère de l'observateur à l'espace projeté.
 Source : \cite{pipeline3}
 
 \subsubsection{Primitive assembly ou Tesselation}
-Assemblage des vertex sous formes de triangle. L’assemblage s’effectue en prenant les vertex dans l’ordre spécifié par le tableau de vertex.
+Assemblage des vertices sous forme de triangles. L’assemblage s’effectue en prenant les vertices dans l’ordre dans lequel elles sont enregistrées dans la mémoire.
 \\\\
 Il existe trois méthodes d’assemblage :
 \begin{itemize}
 	\item Chaque paquet de trois vertex est un triangle indépendant.
 	\item Les deux derniers vertex de chaque triangle sont les deux premiers vertex d’un autre triangle (bande de triangle ou triangle strip).
-	\item Le premier élément est relié à chaque paire d’élément suivant (ventilateur de triangle ou triangle fan).
+	\item Le premier élément est relié à chaque paire d’élément suivant (Triangle fan).
 	\end{itemize}
-Décomposer des formes complexes, en formes géométriques simple
+Décomposer des formes complexes, en formes géométriques simple.
 
 \subsubsection{Backface Culling}
 Supprime de l’affichage les triangles qui  tournent le dos à la caméra (face arrière d’une face) en effectuant un calcul avec sa normale.
