@@ -15,8 +15,8 @@ En sortie, il renvoie une image 2D composée de pixels.
 Le pipeline se décompose en 3 étapes : 
 \begin{itemize}
   \item Etape 1 : Transformations et calculs géométriques sur les sommets.
-  \item Etape 2 : Calcul du rendu local (dans le champ de la caméra) et mise en place de texture des pixels de la facette.
-  \item Etape 3 : Construction et rendu de l'image finale.\end{itemize}
+  \item Etape 2 : Pour chaque objet, calcul du rendu local et application des textures.
+  \item Etape 3 : Construction (mise à l'échelle) et rendu de l'image finale.\end{itemize}
 
 Source : \cite{pipeline2}
 
