@@ -1,0 +1,13 @@
+Réduire un peu le logo SYMME car tronqué en bas
+
+Page 5 :
+- les concepts "répertoriés"
+- voir pour l'aspect traitement d'image ?
+
+Page 9:
+Dans le scenario nominal du premier cas d'utilisation
+-5 l'application enregistre les chemins "absolus"
+-6 les images ne sont pas forcément enregistrées dans la mémoire vidéo du GPU, "L’application charge les images en mémoire."
+
+Dans le scenario nominal du deuxieme cas d'utilisation
+- Il n'y aura pas de fenetre de calibration RGB ou de reglage lumiere, les reglages se font directement sur le bord de la fenetre principale.

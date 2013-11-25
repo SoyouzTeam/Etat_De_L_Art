@@ -55,16 +55,8 @@ Possibilités du vertex shaders :
 \textbf{\\Transform} est la tâche qui permet de convertir des données spatiales depuis un espace virtuel en 3D vers l'écran en 2D.
 \\\\
 \textbf{Lighting} est la 3e opération qui va permettre d'éclairer la scène : éclairage des objets dans la scène 3D, calcul de l'intéraction des composantes de la lumière sur les objets puis envoi de la scène ainsi calculée à l'écran.
-\\\\
-\textbf{Architecture} :
-\\
-\begin{center}
-\includegraphics[width=12cm,height=60mm]{pipeline/images/ArchiVertex.png}
-\end{center}
 
-\textbf{ALU} (Arithmetic logic unit) : C’est l’unité qui effectue les calculs, grâce aux variables contenues dans les registres.
-\\\\
-Description des registres de la structure :
+\newpage
 
 \subsection{Fragment Shader}
 Un fragment est un pixel qui n’a pas encore été traité. Ses attributs sont définis par le vertex shader, et interpolés par la rastérisation.
@@ -80,12 +72,9 @@ Possibilités du fragment shaders :
 	\item nouveaux modèles d’ombrages (par pixel, géométrie interpolée).
 	\item textures procédurales ou dynamiques.
 	\item bump-mapping
+	\\\\
 \end{itemize}
-\textbf{Architecture} :
-\\
-\begin{center}
-\includegraphics[width=12cm,height=60mm]{pipeline/images/ArchiPixel.png}
-\end{center}
+
 
 Source : \cite{shader3}
 
