@@ -9,15 +9,15 @@ En entrée, il récupère les informations brutes de la scène 3D :
 \\
 \end{itemize}
 
-En sortie, il renvoie une image 2D composée de texels.
+En sortie, il renvoie une image 2D composée de pixels.
 \\
-\textbf{Le texel} est le plus petit élément d'une texture appliquée à une surface.
+%\textbf{Le texel} est le plus petit élément d'une texture appliquée à une surface.
 \\\\
-Le pipeline se déroule en trois phases : 
+Le pipeline se décompose en 3 étapes : 
 \begin{itemize}
-  \item Phase 1 : transformations et calculs géométriques sur les sommets.
-  \item Phase 2 : calcul du rendu local et mise en place de texture des pixels de la facette.
-  \item Phase 3 : construction et rendu de l'image finale.\end{itemize}
+  \item Etape 1 : Transformations et calculs géométriques sur les sommets.
+  \item Etape 2 : Calcul du rendu local (dans le champ de la caméra) et mise en place de texture des pixels de la facette.
+  \item Etape 3 : Construction et rendu de l'image finale.\end{itemize}
 
 Source : \cite{pipeline2}
 
