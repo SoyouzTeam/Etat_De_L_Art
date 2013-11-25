@@ -11,9 +11,9 @@ En entrée, il récupère les informations brutes de la scène 3D :
 
 En sortie, il renvoie une image 2D composée de texels.
 \\
-\textbf{Le texel} est un ou plusieurs pixels, sur lesquels, une texture a été appliqué.
+\textbf{Le texel} est le plus petit élément d'une texture appliquée à une surface.
 \\\\
-Le pipeline a trois phases : 
+Le pipeline se déroule en trois phases : 
 \begin{itemize}
   \item Phase 1 : transformations et calculs géométriques sur les sommets.
   \item Phase 2 : calcul du rendu local et mise en place de texture des pixels de la facette.
@@ -37,7 +37,7 @@ Source : \cite{pipeline2}
 \begin{center}
 \includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline3.png}
 \end{center}
-2003 : Quatrième génération (Pixel shader par le GPU)
+2003 : Quatrième génération (Fragment (ou Pixel) shader par le GPU)
 \\
 \begin{center}
 \includegraphics[width=14cm,height=40mm]{pipeline/images/pipeline4.png}
