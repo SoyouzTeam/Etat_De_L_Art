@@ -1,9 +1,13 @@
 
 % ♥♥♥♥	♥♥♥♥
-Les VBOs\footnote{http://raptor.developpez.com/tutorial/opengl/vbo/} (Vertex Buffer Object) en OpenGL est une méthode qui permet d'envoyer des données vers la carte graphique, elle remplace les VA (Vertex Array) déclarés comme obsolètes par OpenGL qui étaient enregistrés sur le CPU et devaient transiter entre CPU et GPU.\\
-Les VBOs ont été conçus afin d'optenir les meilleurs performances possibles. Son utilisation est actuellement la méthode la plus efficace en OpenGL car les données 3D ne résident plus dans la mémoire système mais dans la mémoire de la carte graphique ce qui permet un rendu plus rapide.\\
-Les VAOs (Vertex Array Object) servent à optimiser l'utilisation des VBOs, ils sont une fonctionnalité toute nouvelle qui ressemble fortement aux Display Lists. Les VAOs permettent la "sauvegarde" de plusieurs commandes dans un seul et même objet qui lui même sera stocké dans la mémoire de la carte graphique. \\
-Par exemple : ces commandes ou appels de fonctions peuvent utiliser des VBOs. Ainsi tout sera stocké directement dans la carte graphique et celle-ci n'aura plus à demander à l'application ce qu'elle doit faire. OpenGL pourra ainsi optimiser ses actions du faite qu'il connetra ses actions futurs. Ceci permet d'éviter de faire transiter trop d'informations entre le système et la carte graphique.\\\\
+Les VBOs (Vertex Buffer Object) en OpenGL est une méthode qui permet d'envoyer des données vers la carte graphique, elle remplace les VA (Vertex Array) déclarés comme obsolètes par OpenGL qui étaient enregistrés sur le CPU et devaient transiter entre le CPU et le GPU.\\
+Les VBOs ont été conçus afin d'obtenir les meilleurs performances possibles. Son utilisation est actuellement la méthode la plus efficace en OpenGL car les données 3D ne résident plus dans la mémoire système mais dans la mémoire de la carte graphique ce qui permet un rendu plus rapide.
+\\\\
+Les VAOs (Vertex Array Object) servent à optimiser l'utilisation des VBOs, ils ont une fonctionnalité toute nouvelle qui ressemble fortement à la Display List. Les VAOs permettent la "sauvegarde" de plusieurs commandes dans un seul et même objet qui lui même sera stocké dans la mémoire de la carte graphique. \\
+Par exemple : ces commandes ou appels de fonctions peuvent utiliser des VBOs. Ainsi tout sera stocké directement dans la carte graphique et celle-ci n'aura plus à demander à l'application ce qu'elle doit faire. OpenGL pourra ainsi optimiser ses actions du faite qu'il connectera ses actions futurs. Ceci permet d'éviter de faire transiter trop d'informations entre le système et la carte graphique.
+\\\\
+Source : \cite{VBO}
+\\\\
 La création d’un VBO suit les étapes suivantes : 
 \begin{itemize}
 \item La génération du nouveau buffer object avec \verb|glGenBuffersARB ( );|
@@ -28,7 +32,7 @@ qui prend en compte deux paramètres. \verb|GLenum type| où type peut être \ve
 
 \subsubsection*{La fonction glBufferData}
 
-A présent le buffer object est généré et prêt à recevoir des données. Sa taille est par défaut mise à zéro, la fonction \verb|glBufferDate| sert donc à l’initialiser avec les informations qui sont connues dans le tableau de données que l’on envoie.
+A présent le buffer object est généré et prêt à recevoir des données. Sa taille est par défaut mise à zéro, la fonction \verb|glBufferDate| sert donc à initialiser le buffer avec les informations qui sont connues dans le tableau de données que l’on envoie.
 \begin{center}
 \verb|void glBufferData(GLenum type, GLsizeiptr size, const GLvoid * data, |\\
 \verb|GLenum usage);|

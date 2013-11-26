@@ -1,8 +1,7 @@
-\section{La carte graphique}
-\subsection{Définition}
+\section{Définition}
 Une carte graphique, ou carte vidéo, est un périphérique permettant à un ordinateur de communiquer 
 avec un écran.\\
-\subsection{Fonctionnement en mode texte}
+\section{Fonctionnement en mode texte}
 Les premières cartes graphiques datent du début des années 1980, à une époque à laquelle les ordinateurs n'affichaient que du texte à l'écran.\\
 Ces cartes ne permettaient d'afficher à l'écran qu'une grille de caractères 
 (25 lignes de 80 caractères) prédéfinis qui mesuraient 9x14 pixels chacun. Il était ainsi impossible de modifier directement la valeur d'un pixel.\\
@@ -12,7 +11,7 @@ du nom de la carte graphique d'IBM qui inaugura cette technologie.\\
 Il est à noter que c'est le CPU\footnote{Central Processing Unit : Unité de calcul centrale / Processeur de la machine} qui donnait ses instructions à la carte graphique, celle-ci ne faisant que transmettre les caractères à l'écran.\\
 Cette norme est encore utilisée de nos jours, elle permet notamment au BIOS d'afficher des informations au démarrage d'un ordinateur.
 \newpage
-\subsection{Fonctionnement en mode graphique}
+\section{Fonctionnement en mode graphique}
 
 En 1981 apparaît la première carte graphique permettant d'adresser chaque pixel de l'écran indépendamment.
 Fabriquée par IBM, cette carte dite CGA, "Color Graphic Adapter" permettait d'utiliser une résolution de 320 par 200 pixels en mode 4 couleurs ou une résolution de 640 par 200 pixels en mode monochrome.\\
@@ -32,9 +31,10 @@ Ces calculs sont lourds pour le CPU, qui n'est alors composé que d'un coeur, ce
 \end{center}
 \newpage
 
-\subsection{L'accélération matérielle 2D}
+\section{L'accélération matérielle 2D}
 
-A l'époque, le rôle de la carte graphique se limitait à servir d'intermédiaire entre le CPU et l'écran, c'était le rôle du CPU de définir l'ensemble des pixels à afficher. Par exemple si une application souhaitait tracer une ligne entre deux points A et B, le CPU devait alors calculer la position de chaque pixel composant la ligne avant de demander à la carte graphique d'afficher ceux-ci.\\
+A l'époque, le rôle de la carte graphique se limitait donc à servir d'intermédiaire entre le CPU et l'écran.
+\\
 Aussi durant les années 1980, avec l'arrivée des interfaces graphiques, les cartes graphiques devinrent de plus en plus performantes dans le but de délester le CPU : elles étaient désormais capables de tracer elles-mêmes des primitives géométriques simples telles que des lignes, des triangles, des rectangles, des cercles, voire de colorier celles-ci d'après les consignes données par le CPU.\\
 
 \begin{center}
@@ -51,7 +51,7 @@ Ici, c'est la carte graphique qui va calculer tous les pixels de la ligne d'apr�
 \end{center}
 \newpage
 
-\subsection{L'accélération matérielle 3D}
+\section{L'accélération matérielle 3D}
 Au début des années 1990 apparaissent les premières applications mettant en œuvre un rendu 3D. C'est notamment le jeu vidéo DOOM datant de décembre 1993 qui est considéré comme étant un pionnier en la matière.\\
 L'affichage en 3D nécessite beaucoup de calculs de la part du CPU, celui-ci doit désormais calculer la projection sur l'écran de chaque point de l'espace à rendre.\\
 Le constructeur 3DFX inaugure alors la première carte d'accélération 3D : la Voodoo, celle-ci permet de calculer les projections des points à la place du CPU.\\
@@ -59,7 +59,7 @@ Au fil des ans, les cartes graphiques deviennent capables d'effectuer la majeure
 également d'accélérer le décodage de flux vidéos compressés.\\
 On parle désormais de GPU, "Graphics Processing Unit" pour désigner l'unité de calcul d'une carte graphique.\footnote{A la différence du CPU, le GPU dispose d'une architecture massivement parallèle.}
 
-\subsection{Différences entre GPU et CPU}
+\section{Différences entre GPU et CPU}
 
 Les CPU et les GPU ont des rôles très différents.
 
@@ -93,7 +93,7 @@ C'est à dire que les calculs doivent pouvoir être répartis entre les différe
 
 
 
-\subsection{Historique des cartes graphiques}
+\section{Historique des cartes graphiques}
 \begin{center}
 \begin{tabular}{|c|c|m{0.2\linewidth}|m{0.3\linewidth} |c|}
 \hline
