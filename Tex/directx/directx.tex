@@ -1,26 +1,24 @@
 \section{Introduction}
 Direct3D est la partie affichage 2D et 3D de l'API propriétaire DirectX de Microsoft.Elle est disponible sur Windows, et est également la base de l'affichage sous Xbox. 
 \newline
-Elle fournit un ensemble de fonctions permettant d'afficher en 2D ou 3D.
+Il fournit un ensemble de fonctions permettant d'afficher en 2D ou 3D.
 \newline
-Contrairement à OpenGL, Microsoft fournit son implementation de Direct3D à tous les constructeurs, qui eux n'ont plus qu'à l'utiliser dans le driver de leurs matériel.
+Contrairement à OpenGL, Microsoft fournit son unique implementation de Direct3D à tous les constructeurs, qui eux n'ont plus qu'à l'implementer dans les drivers de leurs matériels.
   
 \section{Les avantages et inconvénients}
 \subsection{Avantages}
 \begin{itemize}
 \item Plus connu et utilisé qu'OpenGL.
-\item Une aide très large.
-\item Une librairie très riche.
-\item Calcul de données très rapide.
+\item Une communauté plus importante et donc un meilleur support.
+\item Direct3D est une composante de l'API DirectX qui englobe nombreux autres modules ( Réseau, Son, Entrée/Sortie, ...)
 \end{itemize}
 
 \subsection{Inconvénients}
 \begin{itemize}
-\item Il est payant.
-\item Les fonctionnalités Direct3D évoluent en fonction des nouvelles versions de Windows (seven,8) et sont peu compatibles avec les anciennes tel que XP. 
-\item Reconnu moins rapide qu'OpenGL.
-\item Direct3D n'est implémenté que sur Windows (non multi platforme).
+\item Il est exclusif à l'environnement Windows.
+\item Les fonctionnalités Direct3D évoluent en fonction des nouvelles versions de Windows(Seven, 8) et sont peu compatibles avec les anciennes telle que XP. 
+\item Moins rapide qu'OpenGL dans les calculs.
 \end{itemize}
 
 \section{Conclusion}
-Le seul fait que l'API soit payante est déjà assez contraignante, mais le fait qu'OpenGL soit plus rapide, est l'argument décisif dans le choix de la bibliothèque pour notre projet. En effet, en raison de la masse de données à gérer dans notre programme, il est préférable d'utiliser OpenGL.
+Direct3D est très representé, notamment dans le domaine du "visuel", des jeux vidéos. Ceci étant du au fait que DirectX est très complet et cohérent par rapport à ce type d'activité. OpenGL, quant à lui, est portable, plus puissant. En considérant l'importante masse de données à gérer dans notre programme l'usage d'OpenGL est évident d'autant plus qu'OpenGL est plus facile à prendre en main que Direct3D. 
