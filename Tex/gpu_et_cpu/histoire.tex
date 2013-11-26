@@ -39,16 +39,16 @@ Aussi durant les années 1980, avec l'arrivée des interfaces graphiques, les ca
 
 \begin{center}
 \includegraphics[width=9cm,height=8cm]{img/gpuRaster.png}
-
+\end{center}
 Le CPU se comporte désormais en superviseur, il demande à la carte graphique de tracer telle forme et c'est celle-ci qui effectue les calculs.
 
-
+\begin{center}
 \includegraphics[width=16cm,height=6cm]{img/gpuRasterExemple.png}
-
+\end{center}
 Ici, c'est la carte graphique qui va calculer tous les pixels de la ligne d'après les consignes du CPU avant de les afficher à l'écran.
 
 % Avec les cartes graphiques modernes il est maintenant possible de programmer des parties de la carte graphique appelés shader (il en existe trois : les vertex, les geometriques et les pixels ou fragments). Ceux ci peuvent permettre par exemple d'appliquer un éclairage spécifique à notre ligne.
-\end{center}
+
 \newpage
 
 \section{L'accélération matérielle 3D}
@@ -77,7 +77,7 @@ Les CPU et les GPU ont des rôles très différents.
 	\item	Grand nombre de cœurs d'exécution, architecture hautement parallèle adaptée au traitement d'images.
 	\item	Format imposé en entrée et en sortie.
 	\item	A pour utilité première de soulager le CPU.
-
+	\\
 \end{itemize}
 
 De part leurs rôles différents, les CPU et les GPU ont des architectures différentes.
@@ -85,7 +85,7 @@ De part leurs rôles différents, les CPU et les GPU ont des architectures diff�
 \newpage
 \textbf{Les architectures :}
 \begin{center}
-\includegraphics[width=14cm]{pipeline/images/GPUCPU.png}
+\includegraphics[width=13cm]{pipeline/images/GPUCPU.png}
 \end{center}
 
 \textbf{\\Conclusion} : Pour que l’utilisation d’un GPU soit utile et qu'il puisse mettre à profit son architecture parallèle, il faut que les calculs à effectuer soient parallèlisables.\\
