@@ -60,10 +60,10 @@ Source : \cite{pipeline1}
 \newpage
 \subsection{Définition des étapes}
 \subsubsection{Data (Données brutes)}
-Définition des vertices ainsi que leurs coordonnées. Ces données sont enregistrées dans la mémoire de l'ordinateur ou dans un tableau de vertices (Vertex Buffer) sur le GPU suivant la méthode utilisée. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertex, celui-ci passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices, la lecture sera plus rapide.
-Chaque sommet est déclaré avec ses coordonnées x,y et z. Il peut aussi recevoir une couleur r,g,b,a, une normale Nx, Ny, Nz, une texture u,v, une taille et un poids.
-\subsubsection{Transform \& lighting}
-Transformation, positionnement et éclairage des sommets en passant du repère local au repère global puis dans l’espace projeté.
+Définition des vertices ainsi que de leurs coordonnées. Ces données sont enregistrées dans la mémoire de l'ordinateur ou dans un tableau de vertices (Vertex Buffer) sur le GPU suivant la méthode utilisée. L’input assembler est le circuit qui va charger les vertices dans le pipeline à partir de l’adresse de départ du tableau. A la lecture de chaque vertex, celui-ci passe dans le Vertex Cache. Le mémoire cache étant plus rapide, lors des utilisations ultérieures des vertices la lecture sera plus rapide.
+Chaque sommet est déclaré avec ses coordonnées XYZ. Il peut aussi recevoir une couleur RGBA, une normale Nx, Ny, Nz, les coordonnées correspondantes sur une texture, une taille et un poids.
+\subsubsection{Transform \& Lighting}
+Transformation, positionnement et éclairage des sommets en passant du repère local au repère global puis à l’espace projeté (l'écran).
 \\
 Cette tâche peut se décomposer en plusieurs opérations :
 \\\\
@@ -82,7 +82,7 @@ Le repère local est le repère affecté à chaque objet. Chaque vertex de l’o
 \includegraphics[width=10cm,height=40mm]{pipeline/images/repereLocal.png}
 \end{center}
 
-Le passage au repère global qui est le repère de la caméra, ou de l’observateur, s’exécute en changeant les coordonnées de chaque objet, qui passe donc de (0, 0, 0) à (X, Y, Z). Chaque vertice de chaque objet se met à jour en fonction des coordonnées X, Y et Z.
+Le passage au repère global qui est le repère de la caméra, ou de l’observateur, s’exécute en changeant les coordonnées de chaque objet, qui passe donc de (0, 0, 0) à (X, Y, Z). Chaque vertex de chaque objet se met à jour en fonction des coordonnées X, Y et Z.
 \\
 \begin{center}
 \includegraphics[width=10cm,height=60mm]{pipeline/images/repereGlobal.png}\\
