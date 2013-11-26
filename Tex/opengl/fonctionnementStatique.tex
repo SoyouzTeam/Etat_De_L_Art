@@ -3,7 +3,7 @@
 	 \includegraphics[height=11cm]{img/Fonctionnement}
  \end{center}
 
-La première étape est de définir les primitives des objets à dessiner (x,y,z pour chaque Vertex).
+La première étape est de définir les primitives des objets à dessiner (\textit{x,y,z} pour chaque Vertex).
 OpenGL dessine une image tampon qui sera soit conservée dans la mémoire vidéo de la fenêtre graphique avant d’être affichée, soit une image tampon intermédiaire, on parle alors de double buffering.
 
 La transformation du point de vue sert à la position du plan image. Elle prend en compte la position de la caméra pour se placer correctement autour de l'objet. Ces modifications sont faites à l'aide de matrices. 
@@ -18,7 +18,7 @@ Source : \cite{OpenGL}
 \subsection{Primitives}
 Tout d'abord, il s'agit de définir chaque objet à modéliser, grâce aux primitives précédemment décrites.
 
-Dans le code, chaque primitives est décrite de la manière suivante:
+Dans le code, chaque primitive est décrite de la manière suivante:
 
 
 %//////////////////////////////////
@@ -27,11 +27,11 @@ Dans le code, chaque primitives est décrite de la manière suivante:
 XXXX\=XXXX\= \kill
 
 \> \verb|glBegin("type_de_primitive");| \\
-\> \> glVertex(x,y,x);\\
+\> \> glVertex(\textit{x,y,z});\\
 \> \> . \\
 \> \> . On définit chaque vertex en fonction du type de primitive\\
 \> \> . \\
-\> \> glVertex(x,y,x);\\
+\> \> glVertex(\textit{x,y,z});\\
 \> glEnd();
 \end{tabbing}
 %NE PAS TOUCHER A CE TRUC IMMONDE :)
@@ -45,7 +45,7 @@ XXXX\= \kill
 \> \verb|glMatrixMode( GL_MODELVIEW );|
 \end{tabbing}
 
-Ensuite, on charge la matrice identité, ce qui permet de réinitialiser la matrice en cours, puis définit la caméra.
+Ensuite, on charge la matrice identité, ce qui permet de réinitialiser la matrice en cours, puis on définit la caméra.
 
 \begin{tabbing}
 XXXX\= \kill
@@ -53,14 +53,14 @@ XXXX\= \kill
 \> \verb|gluLookAt(eyeX,eyeY,eyeZ,centerX,centerY,centerZ,upX,upY,upZ);|
 \end{tabbing}
 
-La définition de la caméra nécessite 9 paramètres: les 3 premiers pour placer la caméra dans l'espace (x,y,z), les 3 suivants pour définir le point regardé par la caméra (x,y,z) et les trois derniers pour définir quel est l'axe vertical, en général y (On place seulement l'axe voulu à 1 et les autres à 0).\\\\
+La définition de la caméra nécessite 9 paramètres : les 3 premiers pour placer la caméra dans l'espace (\textit{x,y,z}), les 3 suivants pour définir le point regardé par la caméra (\textit{x,y,z}) et les trois derniers pour définir quel est l'axe vertical, en général \textit{y} (On place seulement l'axe voulu à 1 et les autres à 0).\\\\
 
 Il est possible d'effectuer d'autres opérations sur cette matrice, comme une rotation autour d'un des 3 axes ou une translation de vecteurs grâce aux deux fonctions suivantes :
 
 \begin{tabbing}
 XXXX\= \kill
 \> \verb|glRotatef(angle,x,y,z);| \\\\
-Avec l'angle souhaité et x, y et z à 0 ou 1 suivant autour de quel axe on souhaite\\ effectuer la rotation.\\\\
+Avec l'angle souhaité et \textit{x, y} et \textit{z} à 0 ou 1 suivant autour de quel axe on souhaite\\ effectuer la rotation.\\\\
 \> \verb|glTranslatef(vX,vY,vZ);|\\\\
 Avec vX, vY et vZ les composantes de la translation. 
 \end{tabbing}
@@ -72,7 +72,7 @@ La visualisation d'une scène est réalisée par deux types de transformation :
 \begin{itemize}
 	\item la première qui se situe dans l'espace 3D et qui permet de positionner le point de vue et si nécessaire les éclairages, pour un rendu plus réaliste (la matrice de modélisation $GL\_MODELVIEW$) que nous avons vu précédemment.
 
-	\item la seconde qui consiste à projeter la scène 3D précédemment construite sur un plan en 2D. Sous OpenGL on retrouve deux formes de projection, la projection perspective et la projection orthographique.
+	\item la seconde qui consiste à projeter la scène 3D précédemment construite sur un plan en 2D. Sous OpenGL on retrouve deux formes de projection, la \textbf{projection perspective} et la \textbf{projection orthographique}.
 \end{itemize}
 
 La projection appliquée suite aux coordonnées des primitives est définie dans OpenGL grâce à une matrice 4x4. L'usage de ces coordonnées permet de représenter les deux types de projections sous la forme de matrices. \\\\
@@ -82,7 +82,7 @@ Source : \cite{PdfOpenGL}
 \begin{center}
 	 \includegraphics[height=5cm]{img/Perspective}
  \end{center}
-Notre œil perçoit ce qui est loin plus petit qu’il ne l’est en réalité. Cette méthode de projection est souvent utilisée en animation, simulation et autre applications où il faudrait un degré de réalisme, comme peut le percevoir notre œil. Pour la définir il faut connaître son centre de projection (frustum), la distance entre ce point et le début de la zone de rendu et entre ce point et la fin de la zone de rendu.Sous OpenGL la fonction est : 
+Notre œil perçoit un objet qui est loin plus petit qu’il ne l’est en réalité. Cette méthode de projection est souvent utilisée en animation, simulation et autres applications où il faudrait un degré de réalisme certain, c'est-à-dire, comme peut le percevoir notre œil. Pour la définir il faut connaître son centre de projection (\textit{frustum}), la distance entre ce point et le début de la zone de rendu et entre ce point et la fin de la zone de rendu. Sous OpenGL la fonction est : 
 \begin{tabbing}
 XXXX\= \kill
 \> \verb|glFrustum(gauche, droite, bas, haut, proche, éloigné);| \\où les paramètres sont de type double.
@@ -93,7 +93,7 @@ XXXX\= \kill
 \begin{center}
 	 \includegraphics[height=7cm]{img/Ortho}
  \end{center}
-Dans ce cas précis, l’image doit refléter les mesures de l’objet plutôt que son aspect réel. Contrairement à la projection en perspective la taille du viewing volume ne change pas, la distance depuis la caméra n’affecte pas la mesure de l’objet. Sous OpenGL la fonction est : 
+Dans ce cas précis, l’image doit refléter les mesures de l’objet plutôt que son aspect réel. Contrairement à la projection en perspective la taille du \textit{viewing volume} ne change pas, la distance depuis la caméra n’affecte pas la mesure de l’objet. Sous OpenGL la fonction est : 
 \begin{tabbing}
 XXXX\= \kill
 \> \verb|glOrtho(gauche, droite, bas, haut, proche, éloigné);| \\où les paramètres sont des doubles.
