@@ -4,13 +4,13 @@
 \subsection{Principe du Shader}
 
 Le fonctionnement dynamique du pipeline graphique se différencie du fonctionnement statique par l'utilisation de shaders.
-Comme expliqué précédemment les shaders sonts de petits programmes écrits dans un langage spécifique : avec OpenGL, le langage utilisé est le GLSL.\\
+Comme expliqué précédemment les shaders sont de petits programmes écrits dans un langage spécifique : avec OpenGL, le langage utilisé est le GLSL.\\
 Ils sont compilés à l'éxécution du programme OpenGL, et executés pour chaque vertex (Vertex Shader) et chaque pixel (Pixel Shader).
-Ils remplacent les calculs de matrices gérés par défaut dans le fonctionnement statique d'OpenGL. C'est-à-dire qu'il faut implémenter ces calculs dans les shaders. L'intéret est qu'il est possible d'adapter ces calculs pour satisfaire certains besoins de l'application. D'autant plus que les shaders sont executés par la carte graphique(GPU), qui est capable de répartir les opérations sur toutes ses unités de calculs.
+Ils remplacent les calculs de matrices gérés par défaut dans le fonctionnement statique d'OpenGL. C'est-à-dire qu'il faut implémenter ces calculs dans les shaders. L'intérêt est qu'il est possible d'adapter ces calculs pour satisfaire certains besoins de l'application. D'autant plus que les shaders sont exécutés par la carte graphique(GPU), qui est capable de répartir les opérations sur toutes les unités de calculs.
 
 \subsection{Utilisation des shaders}
 
-Il est plus ou moins aisé d'implémenter les shaders dans un programme OpenGL, suivant la bibliotèque graphique utilisée.
+Il est plus ou moins aisé d'implémenter les shaders dans un programme OpenGL, suivant la bibliothèque graphique utilisée.
 Nous prenons l'exemple de la SFML:\\
 
 \begin{tabbing}
@@ -25,19 +25,19 @@ XXXX\=XXXX\= \kill\\
 \> \verb|}|\\
 \end{tabbing}
 
-Pour utiliser le shader il faut l'activer avant de dessiner et le desactiver quand on en a plus besoin.
+Pour utiliser le shader il faut l'activer avant de dessiner et le désactiver quand on en a plus besoin.
 
 
 \begin{tabbing}
 XXXX\=XXXX\= \kill\\
-\> // On active shader\\
+\> // On active le shader\\
 \> \verb|sf::Shader::bind(&shader);|\\
 \\
 \> ....\\
 \> //On dessine nos entités OpenGL ....\\
 \> ....\\
 \\
-\> // On desactive le shader\\
+\> // On désactive le shader\\
 \> \verb|sf::Shader::bind(NULL);|\\
 \end{tabbing}
 
