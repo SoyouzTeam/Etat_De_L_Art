@@ -10,11 +10,21 @@ qu’une autre partie est généralement dispersée sur l’ensemble de la scèn
 \end{itemize}
 
 \section{Lumière ambiante}
+\begin{center}
+\includegraphics[width=5cm,height=5cm]{pipeline/images/objet_ambiante.png}
+\end{center}
 Cette composante est la lumière qui ne semble pas avoir de source précise, elle provient de tous les points de la scène.
 \\\\
 Elle ne permet pas à elle seule de voir les détails des objets de la scène car elle éclaire toute la scène de la même façon, sans ombre.
+\\\\
+\begin{center}
+\includegraphics[width=12cm,height=5cm]{pipeline/images/lumiere_ambiante.png}
+\end{center}
 
 \section{Lumière diffuse}
+\begin{center}
+\includegraphics[width=5cm,height=5cm]{pipeline/images/objet_diffuse.png}
+\end{center}
 Cette composante est la lumière qui provient d'une source précise, telle qu'une lampe, ou le soleil.
 \\\\
 Une lumière est diffuse quand elle est réfléchie par les surfaces qu'elle éclaire.
@@ -26,6 +36,9 @@ Elle apparait donc brillante quand elle touche un objet, et est réfléchie à p
 \end{center}
 
 \section{Lumière spéculaire}
+\begin{center}
+\includegraphics[width=5cm,height=5cm]{pipeline/images/objet_speculaire.png}
+\end{center}
 Cette composante est la lumière qui arrive d'une direction et qui rebondit sur la surface en fonction des propriétés de l'objet et de son orientation par rapport à la source.
 \\\\
 \begin{center}
@@ -37,3 +50,7 @@ Cette composante est la lumière provenant d'un objet.
 \\\\
 Elle permet d'ajouter de l'intensité à un objet.
 Elle n'affecte pas et n'est pas affecté par les autres composantes.
+\\\\
+\begin{center}
+\includegraphics[width=12cm,height=5cm]{pipeline/images/lumiere_emissive.png}
+\end{center}
