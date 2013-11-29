@@ -115,13 +115,13 @@ Passage du repère de l'observateur à l'espace projeté.
 Source : \cite{pipeline3}
 
 \subsubsection{Primitive assembly ou Tesselation}
-Assemblage des vertices sous forme de triangles. L’assemblage s’effectue en prenant les vertices dans l’ordre dans lequel elles sont enregistrées dans la mémoire.
+Assemblage des vertices sous forme de triangles. L’assemblage s’effectue en prenant les vertices dans l’ordre dans lequel ils sont enregistrés dans la mémoire.
 \\\\
 Il existe trois méthodes d’assemblage :
 \begin{itemize}
-	\item Chaque paquet de trois vertex est un triangle indépendant.
-	\item Les deux derniers vertex de chaque triangle sont les deux premiers vertex d’un autre triangle (bande de triangle ou triangle strip).
-	\item Le premier élément est relié à chaque paire d’élément suivant (Triangle fan).
+	\item Chaque paquet de trois vertices forme un triangle indépendant.
+	\item Les deux derniers vertex de chaque triangle sont les deux premiers vertex d’un autre triangle (bande de triangles ou triangle strip).
+	\item Le premier élément est relié à chaque paire d’éléments suivant (Triangle fan).
 	\end{itemize}
 Décomposer des formes complexes, en formes géométriques simple.
 
@@ -130,12 +130,13 @@ Supprime de l’affichage les triangles qui  tournent le dos à la caméra (face
 \subsubsection{Clipping}
 Découpe et supprime de l’affichage les parties non visibles des objets partiellement visibles.
 \subsubsection{Viewport transform}
-Supprime les parties qui ne sont pas dans les coordonnées de l’écran.
+Supprime les parties qui sont hors des coordonnées de l’écran.
 
 \subsubsection{Rasterization}
 La rastérisation, ou matricialisation, est composée du triangle setup et de l’interpolation des pixels.
 \begin{itemize}
-  \item{\textbf{setup ou pixellisation des triangles}} 
+  \item{\textbf{Setup ou pixellisation des triangles}}
+Le but est de savoir si un pixel est à l'intérieur d'un triangle.
 Utilisation de la fonction des contours : Renvoi d’un nombre entier (-1, 0, 1) pour chaque pixel en fonction d’une droite. D’un côté de la droite, -1, de l’autre, 1 et sur la droite 0.
 En appliquant cette fonction aux trois segments, nous avons :
 \begin{itemize}
@@ -143,18 +144,18 @@ En appliquant cette fonction aux trois segments, nous avons :
 	\item A l'extérieur, une des trois fonctions donnera un résultat négatif.
 \end{itemize}
 Si les 3 résultats des fonctions de contours pour un pixel sont positifs, cela veut dire que le pixel appartient au triangle.
-L’optimisation de ce procédé est déterminer le plus petit rectangle qui contient le triangle testé, pour exécuter le test des contours seulement sur un nombre de pixels réduit, et non sur tous les pixels de la forme.
-Les tests des pixels sont exécutés parallèlement pour un gain de temps.
+Une optimisation de ce procédé consiste à déterminer le plus petit rectangle qui contient le triangle testé, pour exécuter le test des contours seulement sur un nombre de pixels réduit, et non sur tous les pixels de la forme.
+Les tests des pixels sont exécutés parallèlement afin d'accélérer l'opération.
 \item{\textbf{Interpolation}}
-Chaque vertex a reçu divers paramètre comme la couleur, la profondeur. Chaque fragment  de chaque triangle, va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une valeur de stencil, une transparence, par interpolations des trois vertices définis précédemment.
+Chaque vertex a reçu divers paramètres tels que la couleur et la profondeur. Chaque fragment de chaque triangle va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une transparence, par interpolation des trois vertices définis précédemment.
 \end{itemize}
 \subsubsection{Multitexturing}
-Mélange des textures avec un rendu d’illumination.
+Le multitexturing est un processus qui permet de mélanger plusieurs textures sur une même surface.
 
 \subsubsection{Raster Operations (ROP)}
-Cette tâche peut se décomposée en plusieurs opérations :
+Cette tâche peut se décomposer en plusieurs opérations :
 \\\\
-\textbf{En entrée} : Tableau de fragment
+\textbf{En entrée} : Tableau de fragments	
 \begin{center}
 \includegraphics[width=12cm,height=50mm]{pipeline/images/rasterOp.png}
 \end{center}
