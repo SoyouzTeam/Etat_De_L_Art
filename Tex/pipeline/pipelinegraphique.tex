@@ -135,7 +135,8 @@ Supprime les parties qui sont hors des coordonnées de l’écran.
 \subsubsection{Rasterization}
 La rastérisation, ou matricialisation, est composée du triangle setup et de l’interpolation des pixels.
 \begin{itemize}
-  \item{\textbf{Setup ou pixellisation des triangles}} 
+  \item{\textbf{Setup ou pixellisation des triangles}}
+Le but est de savoir si un pixel est à l'intérieur d'un triangle.
 Utilisation de la fonction des contours : Renvoi d’un nombre entier (-1, 0, 1) pour chaque pixel en fonction d’une droite. D’un côté de la droite, -1, de l’autre, 1 et sur la droite 0.
 En appliquant cette fonction aux trois segments, nous avons :
 \begin{itemize}
@@ -143,10 +144,10 @@ En appliquant cette fonction aux trois segments, nous avons :
 	\item A l'extérieur, une des trois fonctions donnera un résultat négatif.
 \end{itemize}
 Si les 3 résultats des fonctions de contours pour un pixel sont positifs, cela veut dire que le pixel appartient au triangle.
-L’optimisation de ce procédé est déterminer le plus petit rectangle qui contient le triangle testé, pour exécuter le test des contours seulement sur un nombre de pixels réduit, et non sur tous les pixels de la forme.
-Les tests des pixels sont exécutés parallèlement pour un gain de temps.
+Une optimisation de ce procédé consiste à déterminer le plus petit rectangle qui contient le triangle testé, pour exécuter le test des contours seulement sur un nombre de pixels réduit, et non sur tous les pixels de la forme.
+Les tests des pixels sont exécutés parallèlement afin d'accélérer l'opération.
 \item{\textbf{Interpolation}}
-Chaque vertex a reçu divers paramètre comme la couleur, la profondeur. Chaque fragment  de chaque triangle, va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une valeur de stencil, une transparence, par interpolations des trois vertices définis précédemment.
+Chaque vertex a reçu divers paramètre tels que la couleur et la la profondeur. Chaque fragment de chaque triangle va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une transparence, par interpolation des trois vertices définis précédemment.
 \end{itemize}
 \subsubsection{Multitexturing}
 Mélange des textures avec un rendu d’illumination.
