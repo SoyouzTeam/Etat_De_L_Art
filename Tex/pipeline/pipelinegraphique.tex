@@ -147,15 +147,15 @@ Si les 3 résultats des fonctions de contours pour un pixel sont positifs, cela 
 Une optimisation de ce procédé consiste à déterminer le plus petit rectangle qui contient le triangle testé, pour exécuter le test des contours seulement sur un nombre de pixels réduit, et non sur tous les pixels de la forme.
 Les tests des pixels sont exécutés parallèlement afin d'accélérer l'opération.
 \item{\textbf{Interpolation}}
-Chaque vertex a reçu divers paramètre tels que la couleur et la la profondeur. Chaque fragment de chaque triangle va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une transparence, par interpolation des trois vertices définis précédemment.
+Chaque vertex a reçu divers paramètres tels que la couleur et la profondeur. Chaque fragment de chaque triangle va recevoir en attributs sa couleur, sa profondeur, sa position à l’écran, une transparence, par interpolation des trois vertices définis précédemment.
 \end{itemize}
 \subsubsection{Multitexturing}
-Mélange des textures avec un rendu d’illumination.
+Le multitexturing est un processus qui permet de mélanger plusieurs textures sur une même surface.
 
 \subsubsection{Raster Operations (ROP)}
 Cette tâche peut se décomposer en plusieurs opérations :
 \\\\
-\textbf{En entrée} : Tableau de fragment
+\textbf{En entrée} : Tableau de fragments	
 \begin{center}
 \includegraphics[width=12cm,height=50mm]{pipeline/images/rasterOp.png}
 \end{center}
