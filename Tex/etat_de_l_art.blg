@@ -1,9 +1,0 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: etat_de_l_art.aux
-The style file: plain.bst
-Database file #1: bibTex/biblio.bib
-I was expecting a `,' or a `}'---line 109 of file bibTex/biblio.bib
- : 
- : howpublished = {\url{http://www.raptor.developpez.com/tutorial/opengl/vbo/}},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-(There was 1 error message)

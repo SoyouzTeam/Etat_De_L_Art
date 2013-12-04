@@ -164,7 +164,7 @@ Cette tâche peut se décomposer en plusieurs opérations :
 
 \begin{itemize}
 	\item{\textbf{Alpha Test}}
-C’est le test de transparence. Certaines textures ou couleurs pouvant être transparentes, il faut pouvoir lire le canal alpha d’un pixel. Cette étape supprime tous les pixels qui n’ont pas un alpha acceptable.
+C’est le test de transparence. Certaines textures ou couleurs pouvant être transparentes, il faut pouvoir lire le canal alpha d’un pixel. Cette étape supprime tous les pixels transparents.
 \\
 	\item{\textbf{Depth Test}}
 C’est le test de visibilité (profondeur). C’est la coordonnée z de chaque fragment qui est comparée avec la coordonnée z des autres fragments qui sont sur le même pixel. La carte graphique utilise un depth-buffer qui est un tableau stocké en mémoire. Ce tableau va stocker pour chaque pixel la coordonnée z de l’objet le plus proche de l’écran.
