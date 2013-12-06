@@ -92,8 +92,11 @@ Il faut que l’objet soit dans la bonne orientation, et qu’il soit au bon end
 
 	\item{\textbf{Vertex Blending}}
 
-Combinaison d’un ou plusieurs ensembles de sommets.
-\\
+Combinaison d’un ou plusieurs ensembles de sommets qui permet un remplissage de l'objet pour éviter les cassures.
+\begin{center}
+\includegraphics[width=8cm,height=35mm]{pipeline/images/blending.png}
+\end{center}
+
 	\item{\textbf{View Transform}}
 Passage du repère global au repère de la caméra. Après cette transformation, le point de coordonnées (0, 0, 0) sera la caméra. La direction de la vue de l’observateur sera alignée avec l'axe de la profondeur (l'axe Z). La transformation est opérée par le même principe que le "World Transform".
 \\
@@ -126,7 +129,7 @@ Il existe trois méthodes d’assemblage :
 Décomposer des formes complexes, en formes géométriques simple.
 
 \subsubsection{Backface Culling}
-Supprime de l’affichage les triangles qui  tournent le dos à la caméra (face arrière d’une face) en effectuant un calcul avec sa normale.
+Supprime de l’affichage les triangles qui  tournent le dos à la caméra (face arrière d’un objet) en effectuant un calcul avec sa normale.
 \subsubsection{Clipping}
 Découpe et supprime de l’affichage les parties non visibles des objets partiellement visibles.
 \subsubsection{Viewport transform}
