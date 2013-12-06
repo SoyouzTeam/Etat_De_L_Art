@@ -85,6 +85,8 @@ Source : \cite{PdfOpenGL}
 Notre œil perçoit un objet qui est loin plus petit qu’il ne l’est en réalité. Cette méthode de projection est souvent utilisée en animation, simulation et autres applications où il faudrait un degré de réalisme certain, c'est-à-dire, comme peut le percevoir notre œil. Pour la définir il faut connaître son centre de projection (\textit{frustum}), la distance entre ce point et le début de la zone de rendu et entre ce point et la fin de la zone de rendu. Sous OpenGL la fonction est : 
 \begin{tabbing}
 XXXX\= \kill
+\> \verb|glMatrixMode(GL_PROJECTION);|\\
+\> \verb|glLoadIdentity();|\\
 \> \verb|glFrustum(gauche, droite, bas, haut, proche, éloigné);| \\où les paramètres sont de type double.
 \end{tabbing}
 
@@ -96,6 +98,8 @@ XXXX\= \kill
 Dans ce cas précis, l’image doit refléter les mesures de l’objet plutôt que son aspect réel. Contrairement à la projection en perspective la taille du \textit{viewing volume} ne change pas, la distance depuis la caméra n’affecte pas la mesure de l’objet. Sous OpenGL la fonction est : 
 \begin{tabbing}
 XXXX\= \kill
+\> \verb|glMatrixMode(GL_PROJECTION);|\\
+\> \verb|glLoadIdentity();|\\
 \> \verb|glOrtho(gauche, droite, bas, haut, proche, éloigné);| \\où les paramètres sont des doubles.
 \end{tabbing}
 
