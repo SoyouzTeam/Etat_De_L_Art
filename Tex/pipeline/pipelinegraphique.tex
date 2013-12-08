@@ -191,10 +191,10 @@ Le calcul est simple, à chaque fragment envoyé :
 Les opérations "alpha test" et "alpha blend" sont effectuées par un circuit spécialisé : le Color ROP. Il travaille en parallèle des autres tâches.
 \\
 	\item{\textbf{Dither}}
-Mélange des couleurs des pixels adjacents pour obtenir une couleur plus consistante.
+Mélange de la couleur des pixels adjacents pour obtenir un dégradé plus vrai, qui remédie au cassure entre couleur.
 \\
 	\item{\textbf{Gamma}}
-Applique la correction gamma définie.
+Applique la correction gamma définie. Le gamma est une caractéristique sur laquelle on peut jongler pour augmenter ou réduire le contraste sur une image. Plus le gamma est grand, plus l'écran est clair.
 \end{itemize}
 
 Source : \cite{pipeline4}
